@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5f5"
+    android:orientation="vertical"
+    tools:context=".FundingDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="<"
+            android:textSize="30sp"
+            android:layout_marginTop="48dp"
+            android:layout_marginLeft="28dp"
+            android:textColor="#191D21" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="리사이클링 펀딩"
+            android:layout_marginTop="52dp"
+            android:layout_marginLeft="115dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#191D21" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:layout_marginTop="48dp"
+        android:text="업사이클링 백 만들어요"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#191D21" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="뜨개 가방을 아시나요?"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="#656F77"
+        android:layout_marginTop="14dp"/>
+
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="63dp"
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:layout_marginTop="66dp"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/nomads_avatar"
+        app:civ_border_overlay="true"
+        app:civ_border_width="0dp"
+        app:civ_border_color="#F5F5F5"
+        android:layout_gravity="center"
+        android:layout_marginTop="-138dp"
+        android:elevation="5dp"
+        />
+
+<!--    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="120dp"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:text="펀딩 함께하기"-->
+<!--        style="@style/CustomFABStyle"-->
+<!--        />-->
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" ></Button>
+
+
+
+</LinearLayout>
