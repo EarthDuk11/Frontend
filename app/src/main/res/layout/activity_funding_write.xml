@@ -30,6 +30,7 @@
             />
 
         <Button
+            android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="33dp"
@@ -86,7 +87,7 @@
         />
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnInsertLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="펀딩 모집용 폼 링크 삽입하기"
