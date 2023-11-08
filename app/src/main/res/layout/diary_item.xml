@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
 
+
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
         app:contentPadding="15dp"
@@ -34,9 +35,11 @@
                 android:width="271dp"
                 android:height="24dp"
                 android:text="오늘은 텀블러를 깜빡했다."
+                android:id="@+id/title"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
             <TextView
+                android:id="@+id/content"
                 android:layout_width="290dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
