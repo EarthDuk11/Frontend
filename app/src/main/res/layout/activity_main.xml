@@ -4,23 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#F5F5F5"
+            app:itemIconTint="@drawable/menu_selector_color"
+            app:itemTextColor="@drawable/menu_selector_color"
+            app:menu="@menu/bottom_navigation_menu" />
     </FrameLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_gravity="bottom"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="86dp"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="85dp"
+                android:gravity="top"
+                android:text="어디에 버리나요?"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="179dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="131dp"
+                android:layout_marginRight="20dp"
+                android:background="#D9D9D9" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="19dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="372dp"
+                android:background="#000000" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="371dp"
+                android:gravity="top"
+                android:text="어떻게 버리나요?"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="175dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="410dp"
+                android:gravity="top"
+                android:text="할수록 헷갈리는 분리수거는 이제 그만! 정확한 분리방법을 확인하자"
+                android:textColor="#AAAAAA" />
+
+            <Button
+                android:layout_width="127dp"
+                android:layout_height="32dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="489dp"
+                android:background="@drawable/see_guide_button"
+                android:text="가이드 보러가기"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="195dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="335dp"
+                android:src="@drawable/recycle_guide" />
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/custom_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/navigationView"
-        android:background="#F5F5F5"
-        app:itemIconTint="@drawable/menu_selector_color"
-        app:itemTextColor="@drawable/menu_selector_color"
-        app:menu="@menu/bottom_navigation_menu" />
+        android:layout_height="48dp"
+        android:background="@color/custom_toolbar"
+        app:title="Title"
+        app:titleTextColor="#000000" />
 
 
 </FrameLayout>

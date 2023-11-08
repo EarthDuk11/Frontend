@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#F5F5f5">
     
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,6 +12,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="225dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="79dp"
             android:orientation="vertical">
 
             <ImageView
@@ -21,11 +24,11 @@
                 android:src="@drawable/blank"></ImageView>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="291dp"
+                android:layout_height="41dp"
                 android:layout_gravity="left"
-                android:layout_marginTop="1dp"
                 android:layout_marginLeft="22dp"
+                android:layout_marginTop="1dp"
                 android:text="Login"
                 android:textColor="@color/black"
                 android:textSize="25dp"
@@ -44,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
-                android:background="@color/button_in_color"
+                android:background="@drawable/edittext_round"
                 android:hint="이메일"
                 android:padding="10dp"
                 android:textColor="#000000"
@@ -56,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@color/button_in_color"
+                android:background="@drawable/edittext_round"
                 android:drawableRight="@drawable/baseline_lock_24"
                 android:hint="비밀번호"
                 android:inputType="textPassword"
@@ -69,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:background="@color/main_color"
+                android:background="@drawable/loginbutton_round"
                 android:text="로그인"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
@@ -84,9 +87,7 @@
                 android:layout_marginRight="70dp"
                 android:text="회원가입"
                 android:textSize="18dp"
-                android:textColor="#87CEEB"/>
-
-
+                android:textColor="#058EE2"/>
         </LinearLayout>
     </LinearLayout>
 
