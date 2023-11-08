@@ -13,6 +13,10 @@ class MainActivity : AppCompatActivity(){
 
     private lateinit var fundingBoardFragment: FundingBoardFragment
     private lateinit var fundingDetailFragment: FundingDetailFragment
+    private lateinit var guideFragment : GuideFragment
+    private lateinit var productsFragment: ProductsFragment
+    private lateinit var promotionFragment : PromotionFragment
+    private lateinit var guideDetailFragment: GuideDetailFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +25,10 @@ class MainActivity : AppCompatActivity(){
 
         fundingBoardFragment = FundingBoardFragment()
         fundingDetailFragment = FundingDetailFragment()
+        guideFragment = GuideFragment()
+        productsFragment = ProductsFragment()
+        promotionFragment = PromotionFragment()
+        guideDetailFragment = GuideDetailFragment()
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, fundingBoardFragment)

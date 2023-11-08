@@ -1,6 +1,7 @@
 package com.example.team11
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,19 +41,58 @@ class PromotionFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentPromotionBinding.inflate(layoutInflater)
+        binding = FragmentPromotionBinding.inflate(inflater, container, false)
         return binding.root
-
-        val dataList: ArrayList<TestData> = arrayListOf(
-            TestData("브랜드이름", "설명 왈라왈라", "몇 명 방문"),
-            TestData("브랜드이름", "설명 왈라왈라", "몇 명 방문"),
-            TestData("브랜드이름", "설명 왈라왈라", "몇 명 방문")
-
-        )
 
 
 
     }
+
+    override fun onStart() {
+        super.onStart()
+        val itemList = mutableListOf<ItemBrandModel>()
+
+        val item1:ItemBrandModel=ItemBrandModel()
+        item1.productId ="1"
+        //item1.titleImage
+        item1.tvHeading ="Allbirds"
+        item1.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
+        item1.tvVisit ="17명이 이 브랜드를 방문하였습니다."
+        item1.siteLink = "링크"
+        if (item1 != null) {
+            itemList.add(item1)
+            Log.d("fundingBoard", "item1 저장 완료")
+        }
+
+        val item2:ItemBrandModel=ItemBrandModel()
+        item2.productId ="2"
+        //item1.titleImage
+        item2.tvHeading ="아모레"
+        item2.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
+        item2.tvVisit ="12명이 이 브랜드를 방문하였습니다."
+        item2.siteLink = "링크"
+        if (item2 != null) {
+            itemList.add(item2)
+            Log.d("fundingBoard", "item2 저장 완료")
+        }
+
+        val item3:ItemBrandModel=ItemBrandModel()
+        item3.productId ="3"
+        //item1.titleImage
+        item3.tvHeading ="브랜드 이름"
+        item3.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
+        item3.tvVisit ="7명이 이 브랜드를 방문하였습니다."
+        item3.siteLink = "링크"
+        if (item3 != null) {
+            itemList.add(item3)
+            Log.d("fundingBoard", "item3 저장 완료")
+        }
+
+        binding.brandRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.brandRecycler.adapter = MyBrandAdapter(requireContext(), itemList)
+
+    }
+
 
     companion object {
         /**
@@ -75,47 +115,5 @@ class PromotionFragment : Fragment() {
     }
 }
 
-public class TestData(
-    private var data1: String? = null,
-    private var data2: String? = null,
-    private var data3: String? = null
-){
-    fun getData1(): String? {
-        return data1
-    }
-    fun setData1(name: String) {
-        this.data1 = data1
-    }
-    fun getData2(): String? {
-        return data2
-    }
-    fun setData2(address: String) {
-        this.data2 = data2
-    }
-    fun getData3(): String? {
-        return data3
-    }
-    fun setData3(type: String) {
-        this.data3 = data3
-    }
-}
 
-/*
-class MyViewHolder(val binding:FragmentPromotionBinding) : RecyclerView.ViewHolder(binding.root){
-    fun bind(TestData:TestData){
-        binding.
-    }
-}
-
-class BAdapter(val binding: FragmentPromotionBinding):
-        RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    override fun getItemCount(): Int = dataList.size
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder = MyViewHolder(
-        FragmentPromotionBinding.inflate(LayoutInflater.from(parent.context),parent,false))
-        }*/
 
