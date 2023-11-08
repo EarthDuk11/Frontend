@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/funding_button_round">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fundingImageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/nomads_avatar"
+            app:civ_border_overlay="true"
+            app:civ_border_width="0dp"
+            app:civ_border_color="#F5F5F5" />
+
+        <LinearLayout
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+             >
+            <TextView
+                android:id="@+id/fundingTitleView"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="10dp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="#191D21"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/fundingOneLineView"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:textColor="#191D21"
+                android:textSize="13sp"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/arrowLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="30dp"
+            android:layout_marginLeft="8dp"
+            android:text=">"
+            android:textSize="41sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:scaleType="fitXY" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:background="#F5F5F5" />
+
+</LinearLayout>
