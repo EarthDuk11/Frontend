@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Team11" parent="Theme.AppCompat.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorPrimary">#F5F5f5</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
