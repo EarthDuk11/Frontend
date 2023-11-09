@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.team11.databinding.ActivityGuideDetailBinding
 import com.example.team11.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.navigation.NavigationView
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity(){
         productsFragment = ProductsFragment()
         promotionFragment = PromotionFragment()
         guideDetailFragment = GuideDetailFragment()
+
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, guideFragment)
