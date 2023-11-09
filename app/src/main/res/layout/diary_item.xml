@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:backgroundTint="@color/white"
 
 
         app:cardCornerRadius="10dp"
@@ -35,6 +36,7 @@
                 android:width="271dp"
                 android:height="24dp"
                 android:text="오늘은 텀블러를 깜빡했다."
+                android:textColor="@color/black"
                 android:id="@+id/title"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
@@ -46,6 +48,7 @@
                 android:width="271dp"
                 android:height="16dp"
                 android:text="카공하러 스벅갔는데"
+                android:textColor="@color/black"
                 android:textSize="16dp"
                 android:textStyle="bold"/>
 
@@ -54,7 +57,9 @@
     <Button
         android:layout_width="40dp"
         android:layout_height="match_parent"
-        android:text=">" />
+
+        android:text="이동"
+        android:textColor="@color/black"/>
 </LinearLayout>
 
     </androidx.cardview.widget.CardView>
