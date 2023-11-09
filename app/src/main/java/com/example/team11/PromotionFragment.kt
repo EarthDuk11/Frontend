@@ -56,6 +56,7 @@ class PromotionFragment : Fragment() {
         item1.productId ="1"
         //item1.titleImage
         item1.tvHeading ="Allbirds"
+        item1.titleImage= R.drawable.brand1
         item1.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
         item1.tvVisit ="17명이 이 브랜드를 방문하였습니다."
         item1.siteLink = "링크"
@@ -68,6 +69,7 @@ class PromotionFragment : Fragment() {
         item2.productId ="2"
         //item1.titleImage
         item2.tvHeading ="아모레"
+        item2.titleImage= R.drawable.brand2
         item2.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
         item2.tvVisit ="12명이 이 브랜드를 방문하였습니다."
         item2.siteLink = "링크"
@@ -80,6 +82,7 @@ class PromotionFragment : Fragment() {
         item3.productId ="3"
         //item1.titleImage
         item3.tvHeading ="브랜드 이름"
+        item3.titleImage= R.drawable.brand3
         item3.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
         item3.tvVisit ="7명이 이 브랜드를 방문하였습니다."
         item3.siteLink = "링크"
@@ -88,10 +91,27 @@ class PromotionFragment : Fragment() {
             Log.d("fundingBoard", "item3 저장 완료")
         }
 
+        val item4:ItemBrandModel=ItemBrandModel()
+        item4.productId ="4"
+        //item1.titleImage
+        item4.tvHeading ="행사 이름"
+        item4.titleImage= R.drawable.earth
+        item4.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
+        item4.tvVisit ="7명이 이 행사를 방문하였습니다."
+        item4.siteLink = "링크"
+        if (item4 != null) {
+            itemList.add(item4)
+            Log.d("fundingBoard", "item4 저장 완료")
+        }
+
+
+
+
         binding.brandRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.brandRecycler.adapter = MyBrandAdapter(requireContext(), itemList)
 
     }
+
 
 
     companion object {
