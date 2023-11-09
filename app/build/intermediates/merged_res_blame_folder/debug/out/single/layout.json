@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/fragment_diary_detail.xml",
+        "source": "com.example.team11.app-main-38:/layout/fragment_diary_detail.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/diary_item.xml",
+        "source": "com.example.team11.app-main-38:/layout/diary_item.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/fragment_my_open_funding.xml",
+        "source": "com.example.team11.app-main-38:/layout/fragment_my_open_funding.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/fragment_my_page.xml",
+        "source": "com.example.team11.app-main-38:/layout/fragment_my_page.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/fragment_my_join_funding.xml",
+        "source": "com.example.team11.app-main-38:/layout/fragment_my_join_funding.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/activity_add_diary.xml",
+        "source": "com.example.team11.app-main-38:/layout/activity_add_diary.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/fragment_diary.xml",
+        "source": "com.example.team11.app-main-38:/layout/fragment_diary.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/activity_main.xml",
+        "source": "com.example.team11.app-main-38:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.team11.app-mergeDebugResources-35:/layout/fragment_my_writing.xml",
+        "source": "com.example.team11.app-main-38:/layout/fragment_my_writing.xml"
+    }
+]
