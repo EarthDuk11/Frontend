@@ -13,10 +13,6 @@ class MainActivity : AppCompatActivity(){
 
     private lateinit var fundingBoardFragment: FundingBoardFragment
     private lateinit var fundingDetailFragment: FundingDetailFragment
-    private lateinit var guideFragment : GuideFragment
-    private lateinit var productsFragment: ProductsFragment
-    private lateinit var promotionFragment : PromotionFragment
-    private lateinit var guideDetailFragment: GuideDetailFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +21,9 @@ class MainActivity : AppCompatActivity(){
 
         fundingBoardFragment = FundingBoardFragment()
         fundingDetailFragment = FundingDetailFragment()
-        guideFragment = GuideFragment()
-        productsFragment = ProductsFragment()
-        promotionFragment = PromotionFragment()
-        guideDetailFragment = GuideDetailFragment()
 
         supportFragmentManager.beginTransaction()
-            .replace(R.id.frameLayout, guideFragment)
+            .replace(R.id.frameLayout, fundingBoardFragment)
             .commit()
 
         val bottomNavigationView = findViewById(R.id.navigationView) as NavigationBarView
@@ -40,8 +32,8 @@ class MainActivity : AppCompatActivity(){
                 override fun onNavigationItemSelected(item: MenuItem): Boolean {
                     var selectedFragment: Fragment ? = null
                     when(item.itemId){
-                        R.id.home_menu -> selectedFragment = productsFragment // 원래는 지도 프레그먼트, 지금은 테스트용
-                      R.id.menu_menu -> selectedFragment = promotionFragment // 원래는 길잡이 프레그먼트로 해야 함. 지금은 테스트로 detailFragment를 잡아놓음.
+                        R.id.home_menu -> selectedFragment = fundingBoardFragment // 원래는 지도 프레그먼트, 지금은 테스트용
+                      R.id.menu_menu -> selectedFragment = fundingDetailFragment // 원래는 길잡이 프레그먼트로 해야 함. 지금은 테스트로 detailFragment를 잡아놓음.
                    //     R.id.mypage_menu = 마이페이지 액티비티
                     }
                     selectedFragment?.let{
