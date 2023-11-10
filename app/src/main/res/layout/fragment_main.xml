@@ -89,6 +89,7 @@
             android:textColor="#AAAAAA" />
 
         <Button
+            android:id="@+id/toGuide"
             android:layout_width="127dp"
             android:layout_height="32dp"
             android:layout_marginLeft="18dp"
