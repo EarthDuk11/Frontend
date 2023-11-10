@@ -1,6 +1,8 @@
 package com.example.team11
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +40,10 @@ class FundingBoardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentFundingBoardBinding.inflate(inflater, container, false)
+        binding.fundingWriteButton.setOnClickListener {
+            val intent = Intent(requireContext(), FundingWriteActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
@@ -47,24 +53,36 @@ class FundingBoardFragment : Fragment() {
         // 원래는 DB에서 데이터를 가져와야 함. 지금은 테스트용 코드를 작성한 것.
 
         val itemList = mutableListOf<ItemFundingModel>()
-        val item1 : ItemFundingModel ? = null
-        item1?.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
-        item1?.title = "펀딩 모집"
-        item1?.oneLine = "분리배출 원활화를 위한 쓰레기통 제작"
+        val item1 : ItemFundingModel = ItemFundingModel()
+        item1.docId="1"
+        item1.writer="환경운동가"
+        item1.title = "펀딩 모집"
+        item1.oneLine = "분리배출 원활화 위한 쓰레기통 제작"
+        item1.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
+        item1.date="2023-11-08"
         if (item1 != null) {
             itemList.add(item1)
+            Log.d("fundingBoard", "item1 저장 완료")
         }
 
-        val item2 : ItemFundingModel ? = null
-        item2?.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
-        item2?.title = "마스크 재활용을 위한 펀딩 모집"
-        item2?.oneLine = "마스크 재활용을 위해 펀딩에 참여해주세요"
+        val item2 : ItemFundingModel = ItemFundingModel()
+        item2.docId="2"
+        item2.writer="환경운동가2"
+        item2.title = "마스크 재활용을 위한 펀딩 모집"
+        item2.oneLine = "마스크 재활용을 위한 펀딩"
+        item2.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
+        item2.date="2023-11-08"
         if (item2 != null) {
             itemList.add(item2)
+            Log.d("fundingBoard", "item2 저장 완료")
         }
 
         binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+
+        if(itemList.size==0){
+            Log.d("fundingBoard", "아이템 리스트가 "+ itemList.size.toString()+" 개임. ")
+        }
 
 
 

@@ -19,7 +19,7 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
     }
 
     override fun onBindViewHolder(holder: MyFundingViewHolder, position: Int) {
-        val data = itemList.get(position)
+        val data = itemList[position]
 
         holder.binding.run{
             fundingTitleView.text=data.title

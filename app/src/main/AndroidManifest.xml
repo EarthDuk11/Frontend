@@ -18,7 +18,8 @@
         android:theme="@style/Theme.Team11"
         tools:replace="android:appComponentFactory"
         tools:targetApi="tiramisu">
-        <activity
+
+         <activity
             android:name=".MapViewActivity"
             android:exported="false" />
         <activity
