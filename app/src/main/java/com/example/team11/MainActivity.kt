@@ -1,5 +1,6 @@
 package com.example.team11
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity(){
 
     private lateinit var fundingBoardFragment: FundingBoardFragment
     private lateinit var fundingDetailFragment: FundingDetailFragment
+
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) } // 여기까지 함 (11/9)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +52,21 @@ class MainActivity : AppCompatActivity(){
             }
         )
 
+        /*
+        binding.seeMapBtn.setOnClickListener {	//seeMapBtn 클릭 시
 
+            //2-2. Fragment로 연결해서 현재 액티비티에 띄우기
+            val naverMapFragment = NaverMapFragment()
+              supportFragmentManager.beginTransaction()
+                  .add(R.id.mapContent, naverMapFragment).commit()
+        }
+        */
+
+    }
+
+    fun onMapBoxClick(view: View) {
+        // map_box를 클릭했을 때 수행할 동작을 여기에 추가
+        val intent = Intent(this, MapViewActivity::class.java)
+        startActivity(intent)
     }
 }
