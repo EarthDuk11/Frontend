@@ -10,4 +10,5 @@
     <color name="main_color">#97BFB4</color>
     <color name="second_color">#A8CFC5</color>
     <color name="button_in_color">#E0E9E7</color>
+    <color name="custom_toolbar">#97BFB4</color>
 </resources>
