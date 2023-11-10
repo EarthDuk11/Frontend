@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5f5"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FundingWriteActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/funding_write"
+            android:text="펀딩 모집하기"
+            android:textSize="41sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="17dp"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/button_round"
+            android:paddingHorizontal="25dp"
+            android:gravity="center"
+            android:text="업로드"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/add_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="제목"
+        android:textColorHint="#888888"
+        android:gravity="left|center"
+        android:paddingLeft="12dp"
+        android:layout_marginHorizontal="33dp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginBottom="8dp"
+        />
+
+    <EditText
+        android:id="@+id/add_oneLine"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="한줄 소개"
+        android:textColorHint="#888888"
+        android:gravity="left|center"
+        android:paddingLeft="12dp"
+        android:layout_marginHorizontal="33dp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginBottom="12dp"
+        />
+
+    <EditText
+        android:id="@+id/add_content"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:gravity="left|center"
+        android:paddingLeft="12dp"
+        android:layout_marginHorizontal="33dp"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginBottom="17dp"
+        />
+
+    <Button
+        android:id="@+id/btnInsertLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="펀딩 모집용 폼 링크 삽입하기"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:layout_gravity="center"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/button_round_stroke"
+        />
+</LinearLayout>
