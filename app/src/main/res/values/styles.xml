@@ -5,4 +5,5 @@
         <item name="iconTint">@color/main_color</item>
         <item name="rippleColor">@color/main_color</item>
     </style>
+
 </resources>
