@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5f5"
+    android:orientation="vertical"
+    tools:context=".GuideDetailActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="분리수거 가이드"
+            android:layout_marginTop="52dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#191D21" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:text="마우스"
+                android:textColor="#191D21"
+                android:textSize="32dp" />
+
+            <ImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="90dp"
+                android:src="@drawable/ic_launcher_background" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="240dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:text="버리는 방법"
+                    android:textColor="@color/black"
+                    android:textSize="24dp" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⦁ 마우스는 폐가전 무상방문수거 서비스를 통해 컴퓨터를 배출할 때 함께 배출할 수 있습니다.\n\n
+
+⦁ 컴퓨터 외의 대형 가전제품이나 소형 가전제품을 5개 이상 배출할 때도 폐가전 무상방문수거 서비스를 이용해 배출 가능합니다.\n\n
+
+⦁ 당장 버려야만 한다면, 플라스틱이 아닌 일반쓰레기로 배출해야 합니다.
+"
+                android:textSize="15dp"
+                android:textColor="#121212"
+                android:lineSpacingExtra="5dp"
+                android:layout_marginHorizontal="24dp"
+                android:layout_marginTop="20dp"
+                android:breakStrategy="high_quality"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_round"
+                android:text="뒤로가기"
+                android:layout_marginTop="15dp"
+                android:paddingHorizontal="15dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
