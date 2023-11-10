@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(){
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, mainFragment)
-            .commit()
+            .commit()                            
 
         val bottomNavigationView = findViewById(R.id.navigationView) as NavigationBarView
         bottomNavigationView.setOnItemSelectedListener(
