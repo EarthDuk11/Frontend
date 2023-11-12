@@ -7,4 +7,5 @@ data class ItemBrandModel(
     var tvsubscription: String? = null,
     var tvVisit: String? =null,
     var siteLink: String? =null,
+    var countVisit: Int = 0,
 )
