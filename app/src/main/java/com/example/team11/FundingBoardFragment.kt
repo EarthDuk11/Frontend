@@ -7,8 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team11.databinding.FragmentFundingBoardBinding
+import com.example.team11.databinding.FragmentStreetGuideBinding
+import com.google.firebase.firestore.Query
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,6 +48,44 @@ class FundingBoardFragment : Fragment() {
             val intent = Intent(requireContext(), FundingWriteActivity::class.java)
             startActivity(intent)
         }
+
+        binding.fundingBoardRecyclerView.setOnClickListener {
+            var bundle : Bundle = Bundle()
+            bundle.putString("fromFrag", "펀딩 상세 페이지로 이동")
+            // 추후 데이터를 가지고 이동해야 함.
+            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+            val fundingDetailFragment: Fragment = FundingDetailFragment()
+            fundingDetailFragment.arguments = bundle
+            transaction.replace(R.id.frameLayout, fundingDetailFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        // 지금부터 DB에서 가져올 것임.
+
+
+        Log.d("Funding Board", "onStart")
+        MyApplication.db.collection("fundings")
+
+            .orderBy("date", Query.Direction.DESCENDING)
+
+            .get()
+            .addOnSuccessListener { result ->
+                val itemList = mutableListOf<ItemFundingModel>()
+                for(document in result){
+                    val item = document.toObject(ItemFundingModel::class.java)
+                    item.docId = document.id
+                    itemList.add(item)
+                }
+                binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+            }
+            .addOnFailureListener{ exception ->
+                Toast.makeText(requireContext(), "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+            }
+
+
+
         return binding.root
     }
 
@@ -52,37 +94,39 @@ class FundingBoardFragment : Fragment() {
 
         // 원래는 DB에서 데이터를 가져와야 함. 지금은 테스트용 코드를 작성한 것.
 
-        val itemList = mutableListOf<ItemFundingModel>()
-        val item1 : ItemFundingModel = ItemFundingModel()
-        item1.docId="1"
-        item1.writer="환경운동가"
-        item1.title = "펀딩 모집"
-        item1.oneLine = "분리배출 원활화 위한 쓰레기통 제작"
-        item1.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
-        item1.date="2023-11-08"
-        if (item1 != null) {
-            itemList.add(item1)
-            Log.d("fundingBoard", "item1 저장 완료")
-        }
+//        val itemList = mutableListOf<ItemFundingModel>()
+//        val item1 : ItemFundingModel = ItemFundingModel()
+//        item1.docId="1"
+//        item1.writer="환경운동가"
+//        item1.title = "펀딩 모집"
+//        item1.oneLine = "분리배출 원활화 위한 쓰레기통 제작"
+//        item1.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
+//        item1.date="2023-11-08"
+//        if (item1 != null) {
+//            itemList.add(item1)
+//            Log.d("fundingBoard", "item1 저장 완료")
+//        }
+//
+//        val item2 : ItemFundingModel = ItemFundingModel()
+//        item2.docId="2"
+//        item2.writer="환경운동가2"
+//        item2.title = "마스크 재활용을 위한 펀딩 모집"
+//        item2.oneLine = "마스크 재활용을 위한 펀딩"
+//        item2.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
+//        item2.date="2023-11-08"
+//        if (item2 != null) {
+//            itemList.add(item2)
+//            Log.d("fundingBoard", "item2 저장 완료")
+//        }
+//
+//        binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+//
+//        if(itemList.size==0){
+//            Log.d("fundingBoard", "아이템 리스트가 "+ itemList.size.toString()+" 개임. ")
+//        }
 
-        val item2 : ItemFundingModel = ItemFundingModel()
-        item2.docId="2"
-        item2.writer="환경운동가2"
-        item2.title = "마스크 재활용을 위한 펀딩 모집"
-        item2.oneLine = "마스크 재활용을 위한 펀딩"
-        item2.content = "안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다. 안녕하세요. 펀딩을 하려고 합니다."
-        item2.date="2023-11-08"
-        if (item2 != null) {
-            itemList.add(item2)
-            Log.d("fundingBoard", "item2 저장 완료")
-        }
 
-        binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
-
-        if(itemList.size==0){
-            Log.d("fundingBoard", "아이템 리스트가 "+ itemList.size.toString()+" 개임. ")
-        }
 
 
 

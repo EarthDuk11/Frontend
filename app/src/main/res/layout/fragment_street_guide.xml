@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".StreetGuideActivity">
+    tools:context=".StreetGuideFragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -40,7 +38,7 @@
 
         <TextView
             android:layout_width="164dp"
-            android:layout_height="60dp"
+            android:layout_height="63dp"
             android:layout_marginLeft="19dp"
             android:layout_marginTop="133dp"
             android:gravity="top"
@@ -51,6 +49,7 @@
             android:textSize="15dp" />
 
         <Button
+            android:id="@+id/toFunding"
             android:layout_width="127dp"
             android:layout_height="30dp"
             android:layout_marginLeft="19dp"
@@ -82,7 +81,7 @@
 
         <TextView
             android:layout_width="164dp"
-            android:layout_height="60dp"
+            android:layout_height="63dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="530dp"
             android:gravity="top"
@@ -92,6 +91,7 @@
             android:textSize="15dp" />
 
         <Button
+            android:id="@+id/toBrand"
             android:layout_width="127dp"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
@@ -110,9 +110,11 @@
             android:textAlignment="center"
             android:textColor="#AAAAAA"
             android:textSize="15dp"
-            tools:ignore="RtlCompat" />
+            tools:ignore="RtlCompat"
+             />
 
         <Button
+            android:id="@+id/toDiary"
             android:layout_width="127dp"
             android:layout_height="30dp"
             android:layout_marginLeft="241dp"
@@ -126,4 +128,3 @@
 
 
 </FrameLayout>
-
