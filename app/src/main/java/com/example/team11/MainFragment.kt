@@ -51,7 +51,7 @@ class MainFragment : Fragment(), View.OnClickListener{
             val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
             val guideFragment: Fragment = GuideFragment()
             guideFragment.arguments = bundle
-            transaction.replace(R.id.main_layout, guideFragment)
+            transaction.replace(R.id.frameLayout, guideFragment)
             transaction.addToBackStack(null)
             transaction.commit()
         }
