@@ -9,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".MainFragment">
 
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -107,7 +108,6 @@
 
 
     </RelativeLayout>
-
 
 
 
