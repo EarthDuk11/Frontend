@@ -19,6 +19,9 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".DiaryDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".GuideDetailActivity"
             android:exported="false" />
         <activity

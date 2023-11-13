@@ -17,8 +17,13 @@ class MainActivity : AppCompatActivity(){
 
 
 
+
     //    private lateinit var fundingBoardFragment: FundingBoardFragment
     private lateinit var fundingDetailFragment: FundingDetailFragment
+    //     mypage fragment
+    private lateinit var mypageFragment : MyPageFragment
+
+    private lateinit var diaryFragment : DiaryFragment
 
     val binding by lazy { ActivityMainBinding.inflate(layoutInflater) } // 여기까지 함 (11/9)
 
@@ -33,6 +38,11 @@ class MainActivity : AppCompatActivity(){
 //        fundingBoardFragment = FundingBoardFragment()
         fundingDetailFragment = FundingDetailFragment()
 
+        // add mypage fragment
+        mypageFragment = MyPageFragment()
+
+        diaryFragment = DiaryFragment()
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, mainFragment)
             .commit()
@@ -45,7 +55,7 @@ class MainActivity : AppCompatActivity(){
                     when(item.itemId){
                         R.id.home_menu -> selectedFragment = mainFragment // 원래는 지도 프레그먼트, 지금은 테스트용
                         R.id.menu_menu -> selectedFragment = fundingDetailFragment // 원래는 길잡이 프레그먼트로 해야 함. 지금은 테스트로 detailFragment를 잡아놓음.
-                        //     R.id.mypage_menu = 마이페이지 액티비티
+                        R.id.mypage_menu -> selectedFragment = diaryFragment
                     }
                     selectedFragment?.let{
                         supportFragmentManager
