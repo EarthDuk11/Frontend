@@ -6,9 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.FragmentPromotionBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -58,8 +57,9 @@ class PromotionFragment : Fragment() {
         item1.tvHeading ="Allbirds"
         item1.titleImage= R.drawable.brand1
         item1.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
-        item1.tvVisit ="17명이 이 브랜드를 방문하였습니다."
-        item1.siteLink = "링크"
+        //item1.tvVisit ="17명이 이 브랜드를 방문하였습니다."
+        item1.siteLink = "https://www.google.co.kr/"
+
         if (item1 != null) {
             itemList.add(item1)
             Log.d("fundingBoard", "item1 저장 완료")
@@ -71,8 +71,8 @@ class PromotionFragment : Fragment() {
         item2.tvHeading ="아모레"
         item2.titleImage= R.drawable.brand2
         item2.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
-        item2.tvVisit ="12명이 이 브랜드를 방문하였습니다."
-        item2.siteLink = "링크"
+        //item2.tvVisit ="12명이 이 브랜드를 방문하였습니다."
+        item2.siteLink = "https://www.naver.com"
         if (item2 != null) {
             itemList.add(item2)
             Log.d("fundingBoard", "item2 저장 완료")
@@ -84,8 +84,8 @@ class PromotionFragment : Fragment() {
         item3.tvHeading ="브랜드 이름"
         item3.titleImage= R.drawable.brand3
         item3.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
-        item3.tvVisit ="7명이 이 브랜드를 방문하였습니다."
-        item3.siteLink = "링크"
+        //item3.tvVisit ="7명이 이 브랜드를 방문하였습니다."
+        item3.siteLink = "https://www.google.co.kr/"
         if (item3 != null) {
             itemList.add(item3)
             Log.d("fundingBoard", "item3 저장 완료")
@@ -97,8 +97,8 @@ class PromotionFragment : Fragment() {
         item4.tvHeading ="행사 이름"
         item4.titleImage= R.drawable.earth
         item4.tvsubscription = "브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라브랜드 설명 왈라왈라"
-        item4.tvVisit ="7명이 이 행사를 방문하였습니다."
-        item4.siteLink = "링크"
+        //item4.tvVisit ="7명이 이 행사를 방문하였습니다."
+        item4.siteLink = "https://www.google.co.kr/"
         if (item4 != null) {
             itemList.add(item4)
             Log.d("fundingBoard", "item4 저장 완료")
@@ -106,9 +106,13 @@ class PromotionFragment : Fragment() {
 
 
 
-
+        val myBrandAdapter = MyBrandAdapter(requireContext(), itemList)
         binding.brandRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.brandRecycler.adapter = MyBrandAdapter(requireContext(), itemList)
+        binding.brandRecycler.adapter = myBrandAdapter
+
+
+
+
 
     }
 
