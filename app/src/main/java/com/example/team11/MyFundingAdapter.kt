@@ -23,7 +23,7 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
 
         holder.binding.run{
             fundingTitleView.text=data.title
-            fundingOneLineView.text=data.oneLine
+            fundingOneLineView.text=data.oneIntro
         }
 
         //스토리지 이미지 다운로드........................ 이미지를 넣어줘야 함.
