@@ -20,7 +20,11 @@
         tools:replace="android:appComponentFactory"
         tools:targetApi="tiramisu">
         <activity
+<<<<<<< HEAD
             android:name=".ProductElectronicActivity"
+=======
+            android:name=".DiaryDetailActivity"
+>>>>>>> 84802bcf43108140b45e28a05a5cadf04b59b5fb
             android:exported="false" />
         <activity
             android:name=".GuideDetailActivity"
