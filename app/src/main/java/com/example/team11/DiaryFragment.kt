@@ -60,6 +60,9 @@ class DiaryFragment : Fragment() {
         val dummyDataList = listOf(
             DiaryFeedModel("1", "user1@example.com", "제목 1", "내용 1"),
             DiaryFeedModel("1", "user2@example.com", "제목 2", "내용 2"),
+            DiaryFeedModel("1", "user3@example.com", "제목 3", "내용 3"),
+            DiaryFeedModel("1", "user1@example.com", "제목 1", "내용 1"),
+            DiaryFeedModel("1", "user2@example.com", "제목 2", "내용 2"),
             DiaryFeedModel("1", "user3@example.com", "제목 3", "내용 3")
         )
 
@@ -70,6 +73,13 @@ class DiaryFragment : Fragment() {
         binding.DiaryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.DiaryRecyclerView.adapter = MyFeedAdapter(requireContext(), itemList)
 
+        binding.goWritingBtn.setOnClickListener{
+            activity?.let{
+                val intent = Intent(context, AddDiaryActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
     }
 
 
