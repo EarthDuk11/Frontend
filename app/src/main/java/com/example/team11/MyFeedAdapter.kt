@@ -1,8 +1,11 @@
 package com.example.team11
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +27,10 @@ class MyFeedAdapter(val context: Context, val itemList: MutableList<DiaryFeedMod
          holder.binding.content.text = item.content // 예제 코드에서는 TextView를 사용하는 것으로 보이므로, 뷰 바인딩을 사용하지 않을 경우 주석 처리
 
         holder.binding.title.setOnClickListener {
-            // 프래그먼트 이동
+            Intent(context, DiaryDetailActivity::class.java).apply {
+//                putExtras(bundle)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }.run { context.startActivity(this) }
 
         }
     }

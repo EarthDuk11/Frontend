@@ -27,7 +27,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
 
-        android:layout_marginTop="93dp">
+        android:layout_marginTop="53dp">
 
         <ImageView
             android:layout_width="match_parent"
@@ -46,15 +46,27 @@
             android:layout_marginRight="76dp"
             android:layout_marginLeft="76dp"/>
         <Button
+            android:id="@+id/diaryBtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="내가 쓴 글 관리"
+            android:text="내가 쓴 일기 모아보기"
             android:background="@color/white"
             android:textColor="#191D21"
             android:layout_marginTop="18dp"
             android:layout_marginRight="76dp"
             android:layout_marginLeft="76dp"/>
         <Button
+            android:id="@+id/fundingOpeningBtn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="내가 쓴 펀딩 모아보기"
+            android:background="@color/white"
+            android:textColor="#191D21"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="76dp"
+            android:layout_marginLeft="76dp"/>
+        <Button
+            android:id="@+id/fundingJoiningBtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="참여한 펀딩 모아보기"
@@ -64,6 +76,7 @@
             android:layout_marginRight="76dp"
             android:layout_marginLeft="76dp"/>
         <Button
+            android:id="@+id/logoutBtn"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="로그아웃"
