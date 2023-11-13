@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_diary_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiaryFragment"
+    android:background="#F5F5F5">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="오늘의 분리 일기"
+        android:textColor="@color/black"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:width="343dp"
+        android:height="41dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="17dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="72dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="130dp"
+            android:height="25dp"
+            android:text="환경 일기"
+            android:textColor="#656F77"
+
+            android:background="@drawable/background_round"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="130dp"
+            android:height="25dp"
+            android:text="#텀블러 인증"
+            android:textColor="#656F77"
+            android:background="@drawable/background_style_button"
+            android:layout_marginLeft="8dp"
+            />
+
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:background="@color/white"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="3dp"
+        app:contentPadding="15dp"
+        android:backgroundTint="@color/white"
+
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        >
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/nordams"
+            />
+        <LinearLayout
+            android:layout_width="175dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="160dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="분리수거 습관화를 위해"
+                android:textColor="#656F77"
+                android:textSize="12dp"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:src="@drawable/terms"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"/>
+                <Button
+                     android:layout_width="wrap_content"
+                      android:layout_height="match_parent"
+                        android:background="@drawable/background_round"
+                    android:text="일기 쓰러가가"
+                    android:textColor="@color/black"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/DiaryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</LinearLayout>
+
+
+</FrameLayout>

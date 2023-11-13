@@ -5,7 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    tools:context=".MainActivity">
+    tools:context=".StreetGuideActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Title"
+        android:background="@color/custom_toolbar"
+        android:gravity="center_vertical"
+        android:paddingLeft="29dp"
+        android:textSize="26sp"
+        android:textColor="#000000" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -98,7 +109,8 @@
             android:text="분리 '수고'하셨습니다!     오늘의 나의 환경 보호를 일기로 공유해요"
             android:textAlignment="center"
             android:textColor="#AAAAAA"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            tools:ignore="RtlCompat" />
 
         <Button
             android:layout_width="127dp"
@@ -111,31 +123,6 @@
 
 
     </RelativeLayout>
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/custom_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/custom_toolbar"
-        app:title="Title"
-        app:titleTextColor="#000000" />
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigationView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#F5F5F5"
-            app:itemIconTint="@drawable/menu_selector_color"
-            app:itemTextColor="@drawable/menu_selector_color"
-            app:menu="@menu/bottom_navigation_menu" />
-    </FrameLayout>
 
 
 </FrameLayout>
