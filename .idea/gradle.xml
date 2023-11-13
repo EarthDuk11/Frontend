@@ -7,11 +7,8 @@
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-<<<<<<< HEAD
-        <option name="gradleJvm" value="Embedded JDK" />
-=======
-        <option name="gradleJvm" value="Android Studio default JDK" />
->>>>>>> 84802bcf43108140b45e28a05a5cadf04b59b5fb
+        <option name="gradleHome" value="D:/gradle-7.2" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
