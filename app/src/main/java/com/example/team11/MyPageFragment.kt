@@ -58,7 +58,7 @@ class MyPageFragment : Fragment() {
         bundle.putString("fromFrag", "프래그먼트1")
         val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
         fragment.arguments = bundle
-        transaction.replace(R.id.main_layout, fragment)
+        transaction.replace(R.id.frameLayout, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
     }
