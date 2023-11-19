@@ -52,20 +52,7 @@ class FundingBoardFragment : Fragment(){
             val intent = Intent(requireContext(), FundingWriteActivity::class.java)
             startActivity(intent)
         }
-
-        binding.fundingBoardRecyclerView.setOnClickListener {
-            var bundle : Bundle = Bundle()
-            bundle.putString("fromFrag", "펀딩 상세 페이지로 이동")
-            // 추후 데이터를 가지고 이동해야 함.
-            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            val fundingDetailFragment: Fragment = FundingDetailFragment()
-            fundingDetailFragment.arguments = bundle
-            transaction.replace(R.id.frameLayout, fundingDetailFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-
-
+        
         return binding.root
     }
 
