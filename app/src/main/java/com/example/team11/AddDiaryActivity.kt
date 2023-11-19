@@ -5,12 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.team11.databinding.ActivityAddDiaryBinding
-import com.example.team11.databinding.ActivityFundingWriteBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 class AddDiaryActivity : AppCompatActivity() {
     lateinit var binding : ActivityAddDiaryBinding
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_diary)
