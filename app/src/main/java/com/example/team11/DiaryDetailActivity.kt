@@ -2,6 +2,7 @@ package com.example.team11
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import com.example.team11.databinding.ActivityDiaryDetailBinding
 import com.google.firebase.firestore.ktx.firestore
@@ -30,7 +31,11 @@ class DiaryDetailActivity : AppCompatActivity() {
                     .into(binding.img)
             }
         }
+        setBtnEvent()
 
+
+    }
+    private fun setBtnEvent(){
         binding.button1.setOnClickListener {
             // SMILE_BUTTON에 해당하는 데이터베이스 필드에 1을 추가
             updateReactionCount(SMILE_BUTTON, 1)
@@ -45,11 +50,13 @@ class DiaryDetailActivity : AppCompatActivity() {
             // SURPRISED_BUTTON에 해당하는 데이터베이스 필드에 1을 추가
             updateReactionCount(SURPRISED_BUTTON, 1)
         }
+
     }
 
         private fun updateReactionCount(reactionType: Int, countToAdd: Int) {
             val db = Firebase.firestore
             val docRef = db.collection("diaries").document(docId)
+            setBtnReactionVisibilityToGone()
 
             docRef.get()
                 .addOnCompleteListener { task ->
@@ -94,30 +101,11 @@ class DiaryDetailActivity : AppCompatActivity() {
             }
         }
 
-        fun getReactionCount(){
-        val db = Firebase.firestore
-        val docRef = db.collection("diaries").document(docId)
 
-        docRef.get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val document = task.result
-                    if (document != null) {
-                        // document에서 필요한 필드를 가져옵니다.
-                        val smileCount = document.getLong("smileCount")
-                        // 가져온 필드를 사용할 수 있습니다.
-
-                        if (smileCount != null) {
-                            // smileCount를 사용하여 원하는 동작 수행
-                        }
-                    } else {
-                        // 문서가 존재하지 않음
-                    }
-                } else {
-                    // 작업이 실패한 경우 처리
-                }
-            }
-
+    private fun setBtnReactionVisibilityToGone(){
+        binding.button1.visibility = View.GONE
+        binding.button2.visibility = View.GONE
+        binding.button3.visibility = View.GONE
     }
 
     companion object{

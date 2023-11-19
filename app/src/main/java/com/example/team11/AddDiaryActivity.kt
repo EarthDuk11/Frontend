@@ -77,36 +77,20 @@ class AddDiaryActivity : AppCompatActivity() {
         }
     }
 
-    fun verifyeHashTag(content: String)  {
-        val hash = content.contains("#")
-
-        // 데이터베이스에 저장할 데이터 맵
-        val data = hashMapOf(
-            "content" to content,
-            "hash" to hash
-            // 다른 필드도 필요한 경우 추가
-        )
-//
-//        // 데이터베이스에 업데이트
-//        reviewRef.update(data as Map<String, Any>)
-//            .addOnSuccessListener {
-//                // 업데이트 성공 처리
-//                setResult(RESULT_OK)
-//                finish()
-//            }
-//            .addOnFailureListener { exception ->
-//                // 업데이트 실패 처리
-//            }
+    fun verifyeHashTag(content: String) : Boolean {
+        val isHash = content.contains("#")
+        return isHash
     }
 
 
     private fun saveStore(){
         //add............................ uid와 id는 음... 어떻게 해야할지 모르겠음.
+        val content = binding.addContent.text.toString()
         val data = mapOf(
-            "content" to binding.addContent.text.toString(),
+            "content" to content,
             "date" to dateToString(Date()),
             "email" to MyApplication.email,
-            "hash" to false,
+            "hash" to verifyeHashTag(content),
 //            "img" -> 뒤어 upLoadImg에서 처리
             "smileCount" to 0,
             "surprisedCount" to 0,
