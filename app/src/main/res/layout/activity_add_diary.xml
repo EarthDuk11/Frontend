@@ -71,11 +71,11 @@
             />
 
 
-        <TextView
+        <ImageView
             android:id="@+id/add_image"
             android:text="이미지"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:width="300dp"
             android:height="200dp"
             android:layout_marginLeft="30dp"
@@ -89,7 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:width="300dp"
-            android:height="300dp"
+            android:height="150dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginTop="16dp"

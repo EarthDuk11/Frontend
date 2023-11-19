@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.FragmentDiaryBinding
@@ -55,15 +56,31 @@ class DiaryFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-//        val dummyDataList = listOf(
-//            DiaryFeedModel("1", "user1@example.com", "제목 1", "내용 1"),
-//            DiaryFeedModel("1", "user2@example.com", "제목 2", "내용 2"),
-//            DiaryFeedModel("1", "user3@example.com", "제목 3", "내용 3"),
-//            DiaryFeedModel("1", "user1@example.com", "제목 1", "내용 1"),
-//            DiaryFeedModel("1", "user2@example.com", "제목 2", "내용 2"),
-//            DiaryFeedModel("1", "user3@example.com", "제목 3", "내용 3")
-//        )
-    // firebase data
+
+        makeRecyclerView()
+
+        binding.goWritingBtn.setOnClickListener{
+            activity?.let{
+                val intent = Intent(context, AddDiaryActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
+//        android:textColor="#656F77"
+//        android:background="@drawable/background_style_button"
+
+        binding.btnDiaryList.setOnClickListener {
+//            binding.btnDiaryList.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.second_color))
+
+            makeRecyclerView()
+        }
+        binding.btnHashTag.setOnClickListener{
+            hashTagRecyclerView()
+        }
+
+    }
+
+    public fun makeRecyclerView() {
         MyApplication.db.collection("diaries")
             .orderBy("date", Query.Direction.DESCENDING)
             .get()
@@ -81,14 +98,29 @@ class DiaryFragment : Fragment() {
                 Toast.makeText(requireContext(), "데이터 획득 실패", Toast.LENGTH_SHORT).show()
             }
 
-
-        binding.goWritingBtn.setOnClickListener{
-            activity?.let{
-                val intent = Intent(context, AddDiaryActivity::class.java)
-                startActivity(intent)
+    }
+    public fun hashTagRecyclerView() {
+        MyApplication.db.collection("diaries")
+            .orderBy("date", Query.Direction.DESCENDING)
+            .get()
+            .addOnSuccessListener { result ->
+                val itemList = mutableListOf<DiaryFeedModel>()
+                for(document in result){
+                    val item = document.toObject(DiaryFeedModel::class.java)
+                    item.docId = document.id
+                    if(item.hash == true){
+                        //Toast.makeText(context, "${MyApplication.email}", Toast.LENGTH_SHORT).show()
+                        item.docId = document.id
+                        itemList.add(item)
+                    }
+                }
+                binding.DiaryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                binding.DiaryRecyclerView.adapter = MyFeedAdapter(requireContext(), itemList)
+            }
+            .addOnFailureListener{
+                Toast.makeText(requireContext(), "데이터 획득 실패", Toast.LENGTH_SHORT).show()
             }
 
-        }
     }
 
 

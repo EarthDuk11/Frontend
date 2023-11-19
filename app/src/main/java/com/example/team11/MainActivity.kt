@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         val binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // diary permission add 다음에...해야함
+
 
         mainFragment = MainFragment()
 

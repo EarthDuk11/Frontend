@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team11.databinding.FragmentMyPageBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -53,6 +55,8 @@ class MyPageFragment : Fragment() {
 
         return binding.root
     }
+
+
     fun goFragment(fragment : Fragment)  {
         var bundle : Bundle = Bundle()
         bundle.putString("fromFrag", "프래그먼트1")
