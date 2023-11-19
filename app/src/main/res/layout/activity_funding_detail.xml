@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="#F5F5f5"
+android:orientation="vertical"
+tools:context=".FundingDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/backToFundingBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="이전으로"
+            android:textSize="15sp"
+            android:layout_marginTop="52dp"
+            android:layout_marginLeft="28dp"
+            android:textColor="#191D21" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="리사이클링 펀딩"
+            android:layout_marginTop="52dp"
+            android:layout_marginLeft="60dp"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="#191D21" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/fundingTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="32sp"
+                android:layout_marginTop="48dp"
+                android:text="업사이클링 백 만들어요."
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#191D21" />
+
+            <TextView
+                android:id="@+id/fundingOneLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="뜨개 가방을 아시나요?"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="#656F77"
+                android:layout_marginTop="14dp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userImage"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/nomads_avatar"
+                app:civ_border_overlay="true"
+                app:civ_border_width="0dp"
+                app:civ_border_color="#F5F5F5"
+                android:layout_gravity="center"
+                android:layout_marginBottom="-110dp"
+                android:layout_marginTop="10dp"
+                android:elevation="5dp"
+                />
+
+            <TextView
+                android:id="@+id/fundingContent"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="63dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:textSize="20sp"
+                android:text="안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요.  안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요. 안녕하세요."
+                android:textColor="#000000"
+                android:paddingHorizontal="23dp"
+                android:layout_marginTop="66dp"/>
+
+            <Button
+                android:id="@+id/toFormLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_round"
+                android:text="펀딩 함께하기"
+                android:layout_marginTop="15dp"
+                android:paddingHorizontal="15dp"
+                android:layout_gravity="center"
+                />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+    </LinearLayout>
