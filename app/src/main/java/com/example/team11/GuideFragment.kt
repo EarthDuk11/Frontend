@@ -7,9 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.FragmentGuideBinding
+import com.google.firebase.firestore.Query
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,14 +52,49 @@ class GuideFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_guide, container, false)
         binding = FragmentGuideBinding.inflate(inflater, container, false)
 
-        return binding.root
+        binding.guideRecyclerView.setOnClickListener{
+            var bundle : Bundle = Bundle()
+            bundle.putString("fromFrag", "가이드 카테고리 페이지로 이동")
 
+
+        }
+
+        Log.d("Category", "onStart")
+        MyApplication.db.collection("guides")
+
+            .orderBy("id", Query.Direction.DESCENDING)
+
+            .get()
+            .addOnSuccessListener { result ->
+                val itemList = mutableListOf<CategoryModel>()
+                for(document in result){
+                    val item = document.toObject(CategoryModel::class.java)
+                    item.id = document.id
+                    itemList.add(item)
+                }
+
+                val adapter = MyCategoryAdapter(requireContext(), itemList, object: MyCategoryAdapter.OnItemClickListener{
+                    override fun onItemClick(itemId:String){
+                        val intent = Intent(requireContext(), ProductElectronicActivity::class.java)
+                        intent.putExtra("clicked_item_id", itemId) // 여기서 putExtra 사용
+                        requireContext().startActivity(intent)
+                    }
+                })
+                binding.guideRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.guideRecyclerView.adapter = adapter
+
+            }
+            .addOnFailureListener{ exception ->
+                Toast.makeText(requireContext(), "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+            }
+
+        return binding.root
     }
 
 
     override fun onStart() {
         super.onStart()
-
+        /*
         val itemList = mutableListOf<CategoryModel>()
         val item1 : CategoryModel = CategoryModel()
         item1.guideId ="1"
@@ -107,6 +143,7 @@ class GuideFragment : Fragment() {
                     startActivity(intent)
             }
         })
+        */
     }
 
     companion object {
@@ -129,42 +166,5 @@ class GuideFragment : Fragment() {
             }
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        dataInitialize()
-        /*
-        val layoutManager = GridLayoutManager(context, 2)
-        recyclerView.layoutManager = layoutManager
-        recyclerView.setHasFixedSize(true)
-        adapter.CategoryAdapter(categoriesitem)
-        recyclerView.adapter = adapter*/
-        binding.guideRecyclerView.layoutManager = GridLayoutManager(context,2)
-        binding.guideRecyclerView.adapter = CategoryAdapter(categoriesitem)
 
-    }
-
-    private  fun dataInitialize(){
-
-        categoriesitem = arrayListOf<CategoryModel>()
-
-        imageId = arrayListOf(
-            R.drawable.a,
-            R.drawable.b,
-            R.drawable.c,
-            R.drawable.d
-        )
-
-        heading = arrayListOf(
-            getString(R.string.head_1),
-            getString(R.string.head_2),
-            getString(R.string.head_3),
-            getString(R.string.head_4)
-            )
-
-        for (i in imageId.indices){
-            val categoryModel = CategoryModel(imageId[i], heading[i])
-            categoriesitem.add(categoryModel)
-        }
-
-    }*/
 }

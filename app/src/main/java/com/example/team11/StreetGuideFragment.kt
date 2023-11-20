@@ -42,39 +42,27 @@ class StreetGuideFragment : Fragment() {
 
         binding = FragmentStreetGuideBinding.inflate(inflater, container, false)
         binding.toFunding.setOnClickListener {
-            var bundle : Bundle = Bundle()
-            bundle.putString("fromFrag", "펀딩 게시판으로 이동")
-            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            val fundingBoardFragment: Fragment = FundingBoardFragment()
-            fundingBoardFragment.arguments = bundle
-            transaction.replace(R.id.frameLayout, fundingBoardFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            goFragment(FundingBoardFragment())
         }
         binding.toBrand.setOnClickListener {
-            var bundle : Bundle = Bundle()
-            bundle.putString("fromFrag", "홍보관 페이지로 이동")
-            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            val promotionFragment: Fragment = PromotionFragment()
-            promotionFragment.arguments = bundle
-            transaction.replace(R.id.frameLayout, promotionFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            goFragment(PromotionFragment())
         }
         binding.toDiary.setOnClickListener {
-            var bundle : Bundle = Bundle()
-            bundle.putString("fromFrag", "일기 게시판으로 이동")
-            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            val diaryFragment: Fragment = DiaryFragment()
-            diaryFragment.arguments = bundle
-            transaction.replace(R.id.frameLayout, diaryFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
+            goFragment(DiaryFragment())
         }
 
-       // val bottomNavigationView = findViewById(R.id.navigationView) as NavigationBarView
-
         return binding.root
+    }
+
+    fun goFragment(fragment : Fragment)  {
+        var bundle : Bundle = Bundle()
+        bundle.putString("fromFrag", "프래그먼트1")
+        val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        fragment.arguments = bundle
+        transaction.replace(R.id.frameLayout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     companion object {
