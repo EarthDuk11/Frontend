@@ -28,15 +28,26 @@ class MyCategoryAdapter(
 
         holder.binding.run {
             guideTitle.text = data.title
+            /*
             val titleImage = data.image
 
             Glide.with(context)
                 .load(titleImage)
                 .apply(
-                    RequestOptions().placeholder(R.drawable.a)
+                    RequestOptions().placeholder()
                         .error(R.drawable.brand2)
                 )
-                .into(guideImageView)
+                .into(guideImageView)*/
+
+            val imageRef = MyApplication.storage.reference.child("categories/${data.docId}.jpg")
+            imageRef.downloadUrl.addOnCompleteListener{task ->
+                if(task.isSuccessful){
+                    Glide.with(context)
+//                    .load(task.result)
+//                    .into(binding.guideImageView)
+                }
+            }
+
 
             guideCardView.setOnClickListener {
                 // 클릭된 아이템의 ID를 전달
