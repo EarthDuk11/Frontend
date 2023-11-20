@@ -29,6 +29,9 @@
             android:name=".MapViewActivity"
             android:exported="false" />
         <activity
+            android:name=".ProductElectronicActivity"
+            android:exported="true"/>
+        <activity
             android:name=".FundingWriteActivity"
             android:exported="false" />
         <activity
@@ -46,6 +49,8 @@
         <activity
             android:name=".StreetGuideActivity"
             android:exported="false" />
+
+
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
