@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fundingRecyclerView"
     android:orientation="vertical">
 
     <LinearLayout
@@ -36,6 +37,7 @@
                 android:layout_marginRight="10dp"
                 android:lineSpacingExtra="2dp"
                 android:textColor="#191D21"
+                android:textStyle="bold"
                 android:textSize="16sp" />
 
             <TextView
