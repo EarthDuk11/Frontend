@@ -24,6 +24,9 @@
         android:requestLegacyExternalStorage="true"
         tools:targetApi="tiramisu">
         <activity
+            android:name=".FundingDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".DiaryDetailActivity"
             android:exported="false" />
         <activity
@@ -35,6 +38,7 @@
         <activity
             android:name=".ProductElectronicActivity"
             android:exported="true"/>
+
         <activity
             android:name=".FundingWriteActivity"
             android:exported="false" />

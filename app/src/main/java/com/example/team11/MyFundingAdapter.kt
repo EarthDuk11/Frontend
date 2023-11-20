@@ -1,14 +1,20 @@
 package com.example.team11
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.ItemFundingBinding
 
 
 class MyFundingViewHolder(val binding: ItemFundingBinding) : RecyclerView.ViewHolder(binding.root)
-class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFundingModel>): RecyclerView.Adapter<MyFundingViewHolder>(){
+class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFundingModel>): RecyclerView.Adapter<MyFundingViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyFundingViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return MyFundingViewHolder(ItemFundingBinding.inflate(layoutInflater))
@@ -38,6 +44,20 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
 //
 //            }
 //        }
+
+        holder.binding.fundingRecyclerView.setOnClickListener{
+            Intent(context, FundingDetailActivity::class.java).apply {
+                var bundle : Bundle = Bundle()
+                bundle.putString("title", data.title)
+                bundle.putString("oneLine", data.oneIntro)
+                bundle.putString("content", data.content)
+                bundle.putString("link", data.link)
+                bundle.putString("date", data.date)
+                putExtras(bundle)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            }.run { context.startActivity(this) }
+
+        }
 
     }
 }
