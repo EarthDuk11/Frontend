@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.ItemFundingBinding
-
+import com.bumptech.glide.Glide
 
 class MyFundingViewHolder(val binding: ItemFundingBinding) : RecyclerView.ViewHolder(binding.root)
 class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFundingModel>): RecyclerView.Adapter<MyFundingViewHolder>() {
@@ -33,14 +33,14 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
         }
 
         //스토리지 이미지 다운로드........................ 이미지를 넣어줘야 함.
-//        val imageRef = MyApplication.storage.reference.child("images/${data.docId}.jpg")
+//        val imageRef = MyApplication.storage.reference.child("images/${data.docId}.jpg")  // 사용자의 userId를 넣어야 함.
 //        imageRef.downloadUrl.addOnCompleteListener{task ->
 //            if(task.isSuccessful){
 //                // 다운로드 이미지를 ImageView에 보여줌.
 //
 //                GlideApp.with(context)
 //                    .load(task.result)
-//                    .into(holder.binding.itemImageView)
+//                    .into(holder.binding.fundingImageView)
 //
 //            }
 //        }
