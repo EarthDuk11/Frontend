@@ -5,6 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
 
     <application
         android:name=".MyApplication"
@@ -18,7 +23,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Team11"
         tools:replace="android:appComponentFactory"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="tiramisu">
+        <activity
+            android:name=".FundingDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".DiaryDetailActivity"
             android:exported="false" />
@@ -29,11 +38,17 @@
             android:name=".MapViewActivity"
             android:exported="false" />
         <activity
+            android:name=".ProductElectronicActivity"
+            android:exported="true"/>
+
+        <activity
             android:name=".FundingWriteActivity"
             android:exported="false" />
         <activity
             android:name=".AddDiaryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -46,6 +61,8 @@
         <activity
             android:name=".StreetGuideActivity"
             android:exported="false" />
+
+
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"

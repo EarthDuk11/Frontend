@@ -41,7 +41,7 @@
                 android:textSize="20dp"
                 android:textStyle="bold"/>
             <TextView
-                android:id="@+id/content"
+                android:id="@+id/textOneIntro"
                 android:layout_width="290dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="5dp"

@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         val binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // diary permission add 다음에...해야함
+
 
         mainFragment = MainFragment()
 
@@ -33,6 +35,17 @@ class MainActivity : AppCompatActivity(){
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout, mainFragment)
             .commit()
+
+        // FundingDetailActivity에서 FundingBoardActivity로 돌아오고자 할 때
+        val fragmentToFundingBoardFragment = intent.getStringExtra("fragmentToFundingBoard")
+
+        // 해당 프레그먼트로 이동
+
+        if(fragmentToFundingBoardFragment == "FundingBoardFragment"){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, FundingBoardFragment())
+                .commit()
+        }
 
         val bottomNavigationView = findViewById(R.id.navigationView) as NavigationBarView
         bottomNavigationView.setOnItemSelectedListener(
