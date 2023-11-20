@@ -37,6 +37,7 @@
         android:layout_marginLeft="17dp"
         android:layout_marginRight="72dp">
         <Button
+            android:id="@+id/btnDiaryList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="130dp"
@@ -48,6 +49,7 @@
             />
 
         <Button
+            android:id="@+id/btnHashTag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:width="130dp"

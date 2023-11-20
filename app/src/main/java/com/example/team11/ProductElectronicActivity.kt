@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.team11.databinding.ActivityProductElectronicBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class ProductElectronicActivity : AppCompatActivity() {
     lateinit var binding: ActivityProductElectronicBinding
+    lateinit var adapter: MyProductAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +20,49 @@ class ProductElectronicActivity : AppCompatActivity() {
         binding = ActivityProductElectronicBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // itemList를 미리 초기화해줍니다.
+        //val itemList = mutableListOf<ItemProductModel>()
+
+
+
+        //db
+
+        val guideId = intent.getStringExtra("clicked_item_id")
+
+        if(guideId != null){
+            MyApplication.db
+                .collection("guides").document(guideId)
+                .collection("items")
+                .get()
+                .addOnSuccessListener { items ->
+                    val itemList = mutableListOf<ItemProductModel>()
+                    for (document in items){
+                        val item = document.toObject(ItemProductModel::class.java)
+                        item.productId = document.id
+                        itemList.add(item)
+                    }
+                    // Adapter를 초기화합니다. context 파라미터에는 this를 사용합니다.
+                    val adapter = MyProductAdapter(this, itemList, object : MyProductAdapter.OnItemClickListener {
+                        override fun onItemClick(itemId: String) {
+                            val intent = Intent(this@ProductElectronicActivity, GuideDetailActivity::class.java)
+                            intent.putExtra("clicked_item_id", guideId)
+                            intent.putExtra("clicked_detail_item_id", itemId)
+                            startActivity(intent)
+                        }
+                    })
+
+                    binding.productRecyclerView.layoutManager = GridLayoutManager(this, 2)
+                    binding.productRecyclerView.adapter = adapter
+
+                }
+                    .addOnFailureListener{ exception ->
+                    Toast.makeText(this, "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
+
+    /*
         val itemList = mutableListOf<ItemProductModel>()
         val item1: ItemProductModel = ItemProductModel()
         item1.productId = "1"
@@ -68,7 +114,9 @@ class ProductElectronicActivity : AppCompatActivity() {
                     startActivity(intent)
 
             }
-        })
+        })*/
 
     }
+
+
 }

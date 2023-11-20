@@ -2,53 +2,58 @@ package com.example.team11
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.ItemGuideBinding
+import java.util.*
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
-class CategoryViewHolder(val binding: ItemGuideBinding) : RecyclerView.ViewHolder(binding.root)
-
-class MyCategoryAdapter(val context: Context, val itemList : MutableList<CategoryModel>): RecyclerView.Adapter<CategoryViewHolder>() {
+class MyCategoryAdapter(
+    private val context: Context,
+    private val itemList: MutableList<CategoryModel>,
+    private var itemClickListener: OnItemClickListener // 클릭 리스너 추가
+) : RecyclerView.Adapter<MyCategoryAdapter.CategoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-
-        return CategoryViewHolder(ItemGuideBinding.inflate(layoutInflater))
+        val itemBinding = ItemGuideBinding.inflate(layoutInflater, parent, false)
+        return CategoryViewHolder(itemBinding)
     }
 
-    override fun getItemCount(): Int {
-        return itemList.size
-    }
+    override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val data = itemList[position]
 
-        holder.binding.run{
+        holder.binding.run {
+            guideTitle.text = data.title
+            val titleImage = data.image
 
-            guideTitle.text = data.tvHeading
-            guideImageView.setImageResource(data.titleImage)
-        }
+            Glide.with(context)
+                .load(titleImage)
+                .apply(
+                    RequestOptions().placeholder(R.drawable.a)
+                        .error(R.drawable.brand2)
+                )
+                .into(guideImageView)
 
-        holder.binding.guideCardView.setOnClickListener {
-            val pos = position
-            if(pos != RecyclerView.NO_POSITION && itemClickListner != null){
-                itemClickListner.onItemClick(holder.binding.guideCardView, pos)
+            guideCardView.setOnClickListener {
+                // 클릭된 아이템의 ID를 전달
+                data.id?.let { it1 -> itemClickListener.onItemClick(it1) }
             }
         }
-
-
     }
 
-    //커스텀 리스너 인터페이스 정의
-    interface OnItemClickListner{
-        fun onItemClick(view: View, position: Int)
+    // 클릭 리스너 인터페이스 정의
+    interface OnItemClickListener {
+        fun onItemClick(itemId: String)
     }
-    //리스너 인터페이스 객체 전달하는 메서드
-    fun setOnItemclickListner(onItemClickListner: OnItemClickListner){
-        itemClickListner = onItemClickListner
+
+    // 클릭 리스너 설정하는 메서드
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        itemClickListener = listener
     }
-    private lateinit var itemClickListner: OnItemClickListner
 
-
+    class CategoryViewHolder(val binding: ItemGuideBinding) : RecyclerView.ViewHolder(binding.root)
 }

@@ -14,6 +14,7 @@ class MyApplication : MultiDexApplication(){
         lateinit var storage : FirebaseStorage
 
         lateinit var auth : FirebaseAuth
+        lateinit var storage: FirebaseStorage // for diaryActivity
         var email:String? = null
         fun checkAuth() : Boolean{
             var currentUser = auth.currentUser
@@ -30,7 +31,10 @@ class MyApplication : MultiDexApplication(){
         super.onCreate()
 
         auth = Firebase.auth
+
         db = FirebaseFirestore.getInstance() // 하나의 컬렉션을 만들겠다.
+
         storage = Firebase.storage
+
     }
 }

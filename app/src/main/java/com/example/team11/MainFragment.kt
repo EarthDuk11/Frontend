@@ -46,16 +46,20 @@ class MainFragment : Fragment(), View.OnClickListener{
             startActivity(intent)
         }*/
         binding.toGuide.setOnClickListener {
-            var bundle : Bundle = Bundle()
-            bundle.putString("fromFrag", "프래그먼트1")
-            val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            val guideFragment: Fragment = GuideFragment()
-            guideFragment.arguments = bundle
-            transaction.replace(R.id.frameLayout, guideFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            goFragment(GuideFragment())
+
         }
         return binding.root
+    }
+
+    fun goFragment(fragment : Fragment)  {
+        var bundle : Bundle = Bundle()
+        bundle.putString("fromFrag", "프래그먼트1")
+        val transaction: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        fragment.arguments = bundle
+        transaction.replace(R.id.frameLayout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 /*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
