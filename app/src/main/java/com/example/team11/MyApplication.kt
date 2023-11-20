@@ -5,10 +5,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 
 class MyApplication : MultiDexApplication(){
     companion object{
         lateinit var db : FirebaseFirestore
+        lateinit var storage : FirebaseStorage
 
         lateinit var auth : FirebaseAuth
         var email:String? = null
@@ -28,5 +31,6 @@ class MyApplication : MultiDexApplication(){
 
         auth = Firebase.auth
         db = FirebaseFirestore.getInstance() // 하나의 컬렉션을 만들겠다.
+        storage = Firebase.storage
     }
 }
