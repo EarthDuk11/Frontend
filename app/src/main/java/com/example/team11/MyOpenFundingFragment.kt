@@ -5,6 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.team11.databinding.FragmentMyOpenFundingBinding
+import com.example.team11.databinding.FragmentMyWritingBinding
+import com.google.firebase.firestore.Query
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +26,7 @@ class MyOpenFundingFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var binding: FragmentMyOpenFundingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +40,31 @@ class MyOpenFundingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_open_funding, container, false)
+        binding = FragmentMyOpenFundingBinding.inflate(inflater, container, false)
+        makeRecyclerView()
+
+// go funding Detail page................................
+
+        return binding.root
+    }
+    public fun makeRecyclerView() {
+        MyApplication.db.collection("fundings")
+            .orderBy("date", Query.Direction.DESCENDING)
+            .get()
+            .addOnSuccessListener { result ->
+                val itemList = mutableListOf<ItemFundingModel>()
+                for(document in result){
+                    val item = document.toObject(ItemFundingModel::class.java)
+                    item.docId = document.id
+                    itemList.add(item)
+                }
+                binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                binding.recyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+            }
+            .addOnFailureListener{
+                Toast.makeText(requireContext(), "데이터 획득 실패", Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     companion object {
