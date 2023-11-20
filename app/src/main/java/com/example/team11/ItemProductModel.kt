@@ -1,7 +1,7 @@
 package com.example.team11
 
-data class ItemProductModel(
+data class  ItemProductModel(
     var productId: String? = null,
-    var titleImage: Int = R.drawable.a_a,
-    var tvHeading: String? = null,
+    var productImage: String? = null,
+    var productTitle: String? = null,
 )
