@@ -85,5 +85,19 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
 
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0' // Glide 버전은 최신 버전으로 변경 가능
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+
+    // 11/23
+
+//    implementation 'com.google.firebase:firebase:firestore-ktx:24.3.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.2'
+//
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+//    implementation 'com.firebaseui:firebase-ui-storage:8.0.1'
+//    implementation 'com.github.bumptech.glide:compiler:4.13.2'
+
 
 }
