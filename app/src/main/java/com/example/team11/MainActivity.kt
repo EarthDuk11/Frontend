@@ -36,6 +36,17 @@ class MainActivity : AppCompatActivity(){
             .replace(R.id.frameLayout, mainFragment)
             .commit()
 
+        // FundingDetailActivity에서 FundingBoardActivity로 돌아오고자 할 때
+        val fragmentToFundingBoardFragment = intent.getStringExtra("fragmentToFundingBoard")
+
+        // 해당 프레그먼트로 이동
+
+        if(fragmentToFundingBoardFragment == "FundingBoardFragment"){
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, FundingBoardFragment())
+                .commit()
+        }
+
         val bottomNavigationView = findViewById(R.id.navigationView) as NavigationBarView
         bottomNavigationView.setOnItemSelectedListener(
             object: NavigationBarView.OnItemSelectedListener{

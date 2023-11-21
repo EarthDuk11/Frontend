@@ -6,4 +6,10 @@
         <item name="rippleColor">@color/main_color</item>
     </style>
 
+    <style name="MaterialTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/button_in_color</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent"></item>
+    </style>
+
 </resources>
