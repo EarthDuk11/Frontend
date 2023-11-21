@@ -1,6 +1,7 @@
 package com.example.team11
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -39,7 +40,8 @@ class MyCategoryAdapter(
                 )
                 .into(guideImageView)*/
 
-            val imageRef = MyApplication.storage.reference.child("categories/${data.docId}.jpg")
+            val imageRef = MyApplication.storage.reference.child("categories/${data.docId}.png")
+            Log.d("url 출력", imageRef.toString())
             imageRef.downloadUrl.addOnCompleteListener{task ->
                 if(task.isSuccessful){
                     Glide.with(context)
