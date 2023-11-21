@@ -29,6 +29,9 @@
             android:name=".RealSigninActivity"
             android:exported="false" />
         <activity
+            android:name=".FundingDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".DiaryDetailActivity"
             android:exported="false" />
         <activity

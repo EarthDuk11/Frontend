@@ -1,6 +1,7 @@
 package com.example.team11
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -28,15 +29,27 @@ class MyCategoryAdapter(
 
         holder.binding.run {
             guideTitle.text = data.title
+            /*
             val titleImage = data.image
 
             Glide.with(context)
                 .load(titleImage)
                 .apply(
-                    RequestOptions().placeholder(R.drawable.a)
+                    RequestOptions().placeholder()
                         .error(R.drawable.brand2)
                 )
-                .into(guideImageView)
+                .into(guideImageView)*/
+
+            val imageRef = MyApplication.storage.reference.child("categories/${data.docId}.png")
+            Log.d("url 출력", imageRef.toString())
+            imageRef.downloadUrl.addOnCompleteListener{task ->
+                if(task.isSuccessful){
+                    Glide.with(context)
+//                    .load(task.result)
+//                    .into(binding.guideImageView)
+                }
+            }
+
 
             guideCardView.setOnClickListener {
                 // 클릭된 아이템의 ID를 전달
