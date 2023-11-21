@@ -1,5 +1,7 @@
 package com.example.team11
 
+import android.content.Intent
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -11,6 +13,14 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
+        val registerButton: TextView = findViewById(R.id.registerButton)
+
+        // 회원가입 버튼 클릭 시 RealSigninActivity로 이동
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RealSigninActivity::class.java)
+            startActivity(intent)
+        }
 
 //        binding.loginBtn.setOnClickListener {
 //            // 이메일, 비밀번호 회원가입

@@ -54,7 +54,12 @@ class MainActivity : AppCompatActivity(){
                     var selectedFragment: Fragment ? = null
                     when(item.itemId){
                         R.id.home_menu -> selectedFragment = mainFragment // 원래는 지도 프레그먼트, 지금은 테스트용
-                        R.id.menu_menu -> selectedFragment = streetGuideFragment // 원래는 길잡이 프레그먼트로 해야 함. 지금은 테스트로 detailFragment를 잡아놓음.
+                        R.id.menu_menu -> {
+                            // 여기서 menu_menu를 눌렀을 때 LoginActivity로 이동하도록 설정
+                            val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                            startActivity(intent)
+                            return true
+                        } // 원래는 길잡이 프레그먼트로 이동인데 로그인 페이지 이동으로 변경
                         R.id.mypage_menu -> selectedFragment = mypageFragment
                     }
                     selectedFragment?.let{
@@ -78,6 +83,8 @@ class MainActivity : AppCompatActivity(){
                   .add(R.id.mapContent, naverMapFragment).commit()
         }
         */
+
+
 
     }
 
