@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.example.team11.MyApplication.Companion.storage
 import com.example.team11.databinding.ActivityAddDiaryBinding
 import com.google.firebase.storage.StorageReference
 import java.io.File
@@ -23,7 +24,7 @@ import java.util.*
 class AddDiaryActivity : AppCompatActivity() {
     lateinit var binding : ActivityAddDiaryBinding
     lateinit var filePath: String
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_diary)
@@ -99,7 +100,7 @@ class AddDiaryActivity : AppCompatActivity() {
             "title" to binding.addTitle.text.toString(),
             "uid" to MyApplication.auth.uid,
 
-        )
+            )
 
         MyApplication.db.collection("diaries")
             .add(data)// id 발급을 위해 먼저 저장
