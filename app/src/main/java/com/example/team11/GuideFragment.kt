@@ -69,7 +69,7 @@ class GuideFragment : Fragment() {
                 val itemList = mutableListOf<CategoryModel>()
                 for(document in result){
                     val item = document.toObject(CategoryModel::class.java)
-                    item.id = document.id
+                    item.docId = document.id
                     itemList.add(item)
                 }
 
