@@ -78,7 +78,7 @@ class DiaryDetailActivity : AppCompatActivity() {
                                 .addOnSuccessListener {
                                     // 업데이트 성공 처리
                                     setResult(RESULT_OK)
-                                    finish()
+//                                    finish()
                                 }
                                 .addOnFailureListener { exception ->
                                     // 업데이트 실패 처리
