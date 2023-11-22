@@ -55,6 +55,7 @@
                     android:text="@string/head_1"
                     android:textStyle="bold"
                     android:textSize="20dp"
+                    android:layout_gravity="center"
                     android:textColor="#656F77"/>
 
             </LinearLayout>
