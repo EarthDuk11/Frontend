@@ -29,10 +29,16 @@
                 android:layout_gravity="left"
                 android:layout_marginLeft="22dp"
                 android:layout_marginTop="1dp"
-                android:text="Login"
+                android:text="Sign up"
                 android:textColor="@color/black"
                 android:textSize="25dp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="귀하의 이메일과 비밀번호 6자 이상을 입력해주세요."
+                android:layout_marginLeft="22dp"/>
 
         </LinearLayout>
 
@@ -46,6 +52,7 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/edittext_round"
                 android:hint="이메일"
                 android:padding="10dp"
@@ -60,48 +67,23 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/edittext_round"
                 android:drawableRight="@drawable/baseline_lock_24"
-                android:hint="비밀번호"
+                android:hint="비밀번호 - 6자 이상"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textColor="#000000"
                 android:textColorHint="#000000" />
 
             <Button
-                android:id="@+id/loginBtn"
+                android:id="@+id/singInBtn"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/loginbutton_round"
-                android:text="로그인"
+                android:text="가입"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/googleBtn"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="#aed8e6"
-                android:text="       구글인증"
-                android:drawableRight="@drawable/baseline_android_24"
-                android:paddingRight="10dp"
-                android:textColor="#ffffff"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/registerButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="70dp"
-                android:text="회원가입"
-                android:textSize="18dp"
-                android:textColor="#058EE2"/>
 
 
         </LinearLayout>

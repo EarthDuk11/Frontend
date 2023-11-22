@@ -7,8 +7,3 @@ data class CategoryModel(
     var title: String? = null,      //데베에선 title
 )
 
-/*
-var guideId: String? = null,
-    var titleImage: Int = R.drawable.a,
-    var tvHeading: String? = null,
-*/

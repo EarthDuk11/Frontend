@@ -67,12 +67,6 @@ class MyCategoryAdapter(val context: Context, val itemList: MutableList<Category
 //        }
     }
 
-
-
-
-
-
-
-
     override fun getItemCount() = itemList.size // 데이터 리스트의 이름이 itemList이므로 수정
 }
+
