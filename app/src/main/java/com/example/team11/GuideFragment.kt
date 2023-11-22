@@ -69,19 +69,19 @@ class GuideFragment : Fragment() {
                 val itemList = mutableListOf<CategoryModel>()
                 for(document in result){
                     val item = document.toObject(CategoryModel::class.java)
-                    item.id = document.id
+                    item.docId = document.id
                     itemList.add(item)
                 }
 
-                val adapter = MyCategoryAdapter(requireContext(), itemList, object: MyCategoryAdapter.OnItemClickListener{
-                    override fun onItemClick(itemId:String){
-                        val intent = Intent(requireContext(), ProductElectronicActivity::class.java)
-                        intent.putExtra("clicked_item_id", itemId) // 여기서 putExtra 사용
-                        requireContext().startActivity(intent)
-                    }
-                })
+//                val adapter = MyCategoryAdapter(requireContext(), itemList, object: MyCategoryAdapter.OnItemClickListener{
+//                    override fun onItemClick(itemId:String){
+//                        val intent = Intent(requireContext(), ProductElectronicActivity::class.java)
+//                        intent.putExtra("clicked_item_id", itemId) // 여기서 putExtra 사용
+//                        requireContext().startActivity(intent)
+//                    }
+//                })
                 binding.guideRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.guideRecyclerView.adapter = adapter
+                binding.guideRecyclerView.adapter = MyCategoryAdapter(requireContext(), itemList)
 
             }
             .addOnFailureListener{ exception ->
