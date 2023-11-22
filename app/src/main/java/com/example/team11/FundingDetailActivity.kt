@@ -36,10 +36,7 @@ class FundingDetailActivity : AppCompatActivity() {
             }
 
             binding.backToFundingBoard.setOnClickListener{
-                val intent = Intent(this, MainActivity::class.java).apply {
-                    putExtra("fragmentToFundingBoard", "FundingBoardFragment")
-                }
-                this.startActivity(intent)
+                finish()
             }
         }
     }

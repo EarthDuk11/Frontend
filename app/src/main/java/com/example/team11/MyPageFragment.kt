@@ -1,6 +1,7 @@
 package com.example.team11
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -52,6 +53,15 @@ class MyPageFragment : Fragment() {
         binding.fundingOpeningBtn.setOnClickListener { // 람다식 리스너 setOnclickListener{}
             goFragment(MyOpenFundingFragment())
         }
+
+        binding.logoutBtn.setOnClickListener {
+            //로그아웃...........
+            MyApplication.auth.signOut()
+            MyApplication.email = null
+            Toast.makeText(activity, "로그아웃되었습니다.", Toast.LENGTH_LONG).show()
+            // 여기에서 MainFragment로 전환하고 싶음. 
+        }
+
 
         return binding.root
     }
