@@ -1,5 +1,6 @@
 package com.example.team11
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
@@ -123,7 +124,7 @@ class DiaryDetailActivity : AppCompatActivity() {
         private fun updateReactionCount(reactionType: Int, countToAdd: Int) {
             val db = Firebase.firestore
             val docRef = db.collection("diaries").document(docId)
-            setBtnReactionVisibilityToGone()
+            //setBtnReactionVisibilityToGone()
 
             docRef.get()
                 .addOnCompleteListener { task ->
@@ -135,6 +136,7 @@ class DiaryDetailActivity : AppCompatActivity() {
                             // 값을 증가시키기
                             currentCount += countToAdd
 
+                            setReactionBtnBackgroundColor(reactionType)
                             // 데이터베이스 업데이트
                             val data = hashMapOf(
                                 getFieldName(reactionType) to currentCount
@@ -167,6 +169,16 @@ class DiaryDetailActivity : AppCompatActivity() {
                 else -> ""
             }
         }
+    @SuppressLint("ResourceAsColor")
+    private fun setReactionBtnBackgroundColor(reactionType: Int)  {
+        when(reactionType) {
+            SMILE_BUTTON -> binding.button1.setBackgroundColor(R.drawable.thumbsup)
+            THUMBSUP_BUTTON -> binding.button2.setBackgroundColor(R.color.second_color)
+            SURPRISED_BUTTON -> binding.button3.setBackgroundColor(R.color.second_color)
+
+        }
+
+    }
 
 
     private fun setBtnReactionVisibilityToGone(){
