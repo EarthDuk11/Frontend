@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="202dp"
         android:layout_marginTop="87dp"
-        android:src="@drawable/recycle_place"/>
+        android:src="@drawable/mdtwentyfive"/>
 
     <View
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         android:id="@+id/titlelala"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:text="강북1동 푸르지오 분리수거장"
+        android:text="학관 - 자연대 건물 사이"
         android:layout_marginTop="310dp"
         android:layout_marginLeft="55dp"
         android:textSize="25dp"
@@ -58,10 +58,10 @@
 
     <TextView
         android:id="@+id/addresslala"
-        android:layout_width="310dp"
-        android:layout_height="32dp"
-        android:text="서울시 강북구 도봉로 290 (우)01128"
-        android:layout_marginTop="344dp"
+        android:layout_width="380dp"
+        android:layout_height="60dp"
+        android:text="학관 - 자연대 건물 밖 사이의 통로"
+        android:layout_marginTop="340dp"
         android:layout_marginLeft="55dp"
         android:textSize="15dp"
         android:gravity="center_vertical"
@@ -86,7 +86,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="종이, 유리, 플라스틱"
+        android:text="폐지"
         android:layout_marginTop="429dp"
         android:layout_marginLeft="32dp"/>
 
@@ -112,7 +112,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="배출 O"
+        android:text="배출 X"
         android:layout_marginTop="489dp"
         android:layout_marginLeft="32dp"/>
 
@@ -136,7 +136,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="매주 월요일 - 토요일, 8:00~18:00"
+        android:text="상시 가능"
         android:layout_marginTop="549dp"
         android:layout_marginLeft="32dp"/>
 
@@ -160,7 +160,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="근처 주차시설, 장애인 접근성이 좋다."
+        android:text="폐지를 분류할 때 잘 정돈해서 버려야 함"
         android:layout_marginTop="609dp"
         android:layout_marginLeft="32dp"/>
 

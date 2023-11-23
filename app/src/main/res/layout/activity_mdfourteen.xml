@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="202dp"
         android:layout_marginTop="87dp"
-        android:src="@drawable/recycle_place"/>
+        android:src="@drawable/mdfour"/>
 
     <View
         android:layout_width="match_parent"
@@ -48,7 +48,7 @@
         android:id="@+id/titlelala"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:text="강북1동 푸르지오 분리수거장"
+        android:text="약학관아트홀 건물"
         android:layout_marginTop="310dp"
         android:layout_marginLeft="55dp"
         android:textSize="25dp"
@@ -60,7 +60,7 @@
         android:id="@+id/addresslala"
         android:layout_width="310dp"
         android:layout_height="32dp"
-        android:text="서울시 강북구 도봉로 290 (우)01128"
+        android:text="서울 도봉구 삼양로 144길 33"
         android:layout_marginTop="344dp"
         android:layout_marginLeft="55dp"
         android:textSize="15dp"
@@ -86,7 +86,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="종이, 유리, 플라스틱"
+        android:text="일반쓰레기, 플라스틱, 캔, 병류"
         android:layout_marginTop="429dp"
         android:layout_marginLeft="32dp"/>
 
@@ -112,7 +112,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="배출 O"
+        android:text="배출 X"
         android:layout_marginTop="489dp"
         android:layout_marginLeft="32dp"/>
 
@@ -160,7 +160,7 @@
     <TextView
         android:layout_width="317dp"
         android:layout_height="18dp"
-        android:text="근처 주차시설, 장애인 접근성이 좋다."
+        android:text="약학과 건물에 위치해 있음"
         android:layout_marginTop="609dp"
         android:layout_marginLeft="32dp"/>
 

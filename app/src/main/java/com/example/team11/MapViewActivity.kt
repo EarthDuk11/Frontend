@@ -166,57 +166,50 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker10.position = LatLng(37.6532749, 127.0149912) // 여기까지 함 (채원 채워야됨)
         marker10.map = naverMap
 
-        // 열한 번째 마커 표시
-        marker11.position = LatLng(37.653225,127.015686)
+        // ★★marker11~18 지우기
+        /*
+        marker11.position = LatLng(37.6500048, 127.0190873)
         marker11.map = naverMap
 
-        // 열두 번째 마커 표시
-        marker12.position = LatLng(37.653225,127.015686)
+        marker12.position = LatLng(37.6510458, 127.0182461)
         marker12.map = naverMap
 
-        // 열세 번째 마커 표시
-        marker13.position = LatLng(37.653225,127.015686)
+        marker13.position = LatLng(37.652423,127.016418)
         marker13.map = naverMap
 
-        // 열네 번째 마커 표시
-        marker14.position = LatLng(37.653225,127.015686)
+        marker14.position = LatLng(37.6510458, 127.0182461)
         marker14.map = naverMap
 
-        // 열다섯 번째 마커 표시
         marker15.position = LatLng(37.653225,127.015686)
         marker15.map = naverMap
 
-        // 열여섯 번째 마커 표시
-        marker16.position = LatLng(37.653225,127.015686)
+        marker16.position = LatLng(37.653669,127.015346)
         marker16.map = naverMap
 
-        // 열일곱 번째 마커 표시
-        marker17.position = LatLng(37.653225,127.015686)
+        marker17.position = LatLng(37.652610,127.015593)
         marker17.map = naverMap
 
-        // 열여덟 번째 마커 표시
-        marker18.position = LatLng(37.653225,127.015686)
+        marker18.position = LatLng(37.6532749, 127.0149912) // 여기까지 함
         marker18.map = naverMap
 
-        // 열아홉 번째 마커 표시
-        marker19.position = LatLng(37.653225,127.015686)
+        marker19.position = LatLng(37.6511085, 127.0166856)
         marker19.map = naverMap
 
-        // 스무 번째 마커 표시
-        marker20.position = LatLng(37.653225,127.015686)
+        // ★★marker 20~23 지우기
+
+        marker20.position = LatLng(37.653669,127.015346)
         marker20.map = naverMap
 
-        // 스물하나 번째 마커 표시
-        marker21.position = LatLng(37.653225,127.015686)
+        marker21.position = LatLng(37.652610,127.015593)
         marker21.map = naverMap
 
-        // 스물두 번째 마커 표시
-        marker22.position = LatLng(37.653225,127.015686)
+        marker22.position = LatLng(37.6532749, 127.0149912) // 여기까지 함
         marker22.map = naverMap
 
-        // 스물세 번째 마커 표시
-        marker23.position = LatLng(37.653225,127.015686)
+        marker23.position = LatLng(37.6511085, 127.0166856)
         marker23.map = naverMap
+
+        */
 
         // 24 번째 마커 표시
         marker24.position = LatLng(37.6515959, 127.0166134) // 여기부터 다시 시작
@@ -227,9 +220,11 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker25.map = naverMap
 
         // 26 번째 마커 표시
-        marker26.position = LatLng(37.6519872, 127.0166375)
+        marker26.position = LatLng(37.6519872, 127.0166375) // 요놈이 음식물쓰레기!!!!! (음식물쓰레기는 special하니까 다르게 표시해도 좋을듯)
         marker26.map = naverMap
 
+        /*
+        // ★★marker 27~31 지우기
         // 27 번째 마커 표시
         marker27.position = LatLng(37.6522150, 127.0164314)
         marker27.map = naverMap
@@ -253,6 +248,10 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         // 32 번째 마커 표시
         marker32.position = LatLng(37.653225,127.015686) // 엥 이건 왜 남음..?
         marker32.map = naverMap
+        */
+
+
+
 
 
         marker.setOnClickListener(this);

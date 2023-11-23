@@ -2,6 +2,7 @@ package com.example.team11
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.team11.databinding.ActivityMdtwentyfiveBinding
 import com.example.team11.databinding.ActivityMdtwoBinding
 
 class MDtwoActivity : AppCompatActivity() {
