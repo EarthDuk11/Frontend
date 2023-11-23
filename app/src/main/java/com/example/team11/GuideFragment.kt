@@ -52,41 +52,13 @@ class GuideFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_guide, container, false)
         binding = FragmentGuideBinding.inflate(inflater, container, false)
 
-        binding.guideRecyclerView.setOnClickListener{
-            var bundle : Bundle = Bundle()
-            bundle.putString("fromFrag", "가이드 카테고리 페이지로 이동")
+//        binding.guideRecyclerView.setOnClickListener{
+//            var bundle : Bundle = Bundle()
+//            bundle.putString("fromFrag", "가이드 카테고리 페이지로 이동")
+//
+//
+//        }
 
-
-        }
-
-        Log.d("Category", "onStart")
-        MyApplication.db.collection("guides")
-
-            .orderBy("id", Query.Direction.DESCENDING)
-
-            .get()
-            .addOnSuccessListener { result ->
-                val itemList = mutableListOf<CategoryModel>()
-                for(document in result){
-                    val item = document.toObject(CategoryModel::class.java)
-                    item.docId = document.id
-                    itemList.add(item)
-                }
-
-                val adapter = MyCategoryAdapter(requireContext(), itemList, object: MyCategoryAdapter.OnItemClickListener{
-                    override fun onItemClick(itemId:String){
-                        val intent = Intent(requireContext(), ProductElectronicActivity::class.java)
-                        intent.putExtra("clicked_item_id", itemId) // 여기서 putExtra 사용
-                        requireContext().startActivity(intent)
-                    }
-                })
-                binding.guideRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-                binding.guideRecyclerView.adapter = adapter
-
-            }
-            .addOnFailureListener{ exception ->
-                Toast.makeText(requireContext(), "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
-            }
 
         return binding.root
     }
@@ -144,6 +116,36 @@ class GuideFragment : Fragment() {
             }
         })
         */
+
+        Log.d("Category", "onStart")
+        MyApplication.db.collection("guides")
+
+            .orderBy("id", Query.Direction.DESCENDING)
+
+            .get()
+            .addOnSuccessListener { result ->
+                val itemList = mutableListOf<CategoryModel>()
+                for(document in result){
+                    val item = document.toObject(CategoryModel::class.java)
+                    item.docId = document.id
+                    itemList.add(item)
+                }
+
+                // val adapter = MyCategoryAdapter(requireContext(), itemList), object: MyCategoryAdapter.OnItemClickListener{
+//                    override fun onItemClick(itemId:String){
+//                        val intent = Intent(requireContext(), ProductElectronicActivity::class.java)
+//                        intent.putExtra("clicked_item_id", itemId) // 여기서 putExtra 사용
+//                        requireContext().startActivity(intent)
+//                    }
+//                })
+                binding.guideRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.guideRecyclerView.adapter = MyCategoryAdapter(requireContext(), itemList)
+
+            }
+            .addOnFailureListener{ exception ->
+                Toast.makeText(requireContext(), "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     companion object {

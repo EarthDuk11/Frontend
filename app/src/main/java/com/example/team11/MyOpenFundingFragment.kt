@@ -56,7 +56,9 @@ class MyOpenFundingFragment : Fragment() {
                 for(document in result){
                     val item = document.toObject(ItemFundingModel::class.java)
                     item.docId = document.id
-                    itemList.add(item)
+                    if(MyApplication.email.equals(item.email)) {
+                        itemList.add(item)
+                    }
                 }
                 binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 binding.recyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
