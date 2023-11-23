@@ -3,6 +3,7 @@ import android.Manifest
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -46,28 +47,15 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
     val marker8 = Marker()
     val marker9 = Marker()
     val marker10 = Marker()
-    val marker11 = Marker()
-    val marker12 = Marker()
-    val marker13 = Marker()
+
     val marker14 = Marker()
-    val marker15 = Marker()
-    val marker16 = Marker()
-    val marker17 = Marker()
-    val marker18 = Marker()
+
     val marker19 = Marker()
-    val marker20 = Marker()
-    val marker21 = Marker()
-    val marker22 = Marker()
-    val marker23 = Marker()
+
     val marker24 = Marker()
     val marker25 = Marker()
     val marker26 = Marker()
-    val marker27 = Marker()
-    val marker28 = Marker()
-    val marker29 = Marker()
-    val marker30 = Marker()
-    val marker31 = Marker()
-    val marker32 = Marker()
+
 
 
 
@@ -128,6 +116,8 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker.position = LatLng(37.6500722, 127.0202356)
 
         marker.map = naverMap
+        marker.icon = Marker.DEFAULT_ICON
+
 
         // 두 번째 마커 (예시로 추가한 마커)
         marker2.position = LatLng(37.6502939, 127.0193974)
@@ -147,7 +137,7 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker5.map = naverMap
 
         // 여섯 번째 마커 표시
-        marker6.position = LatLng(37.6510458, 127.0182461)
+        marker6.position = LatLng(37.653281, 127.016146)
         marker6.map = naverMap
 
         // 일곱 번째 마커 표시
@@ -166,50 +156,16 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker10.position = LatLng(37.6532749, 127.0149912)
         marker10.map = naverMap
 
-        // ★★marker11~18 지우기
-        /*
-        marker11.position = LatLng(37.6500048, 127.0190873)
-        marker11.map = naverMap
-
-        marker12.position = LatLng(37.6510458, 127.0182461)
-        marker12.map = naverMap
-
-        marker13.position = LatLng(37.652423,127.016418)
-        marker13.map = naverMap
 
         marker14.position = LatLng(37.6510458, 127.0182461)
         marker14.map = naverMap
 
-        marker15.position = LatLng(37.653225,127.015686)
-        marker15.map = naverMap
-
-        marker16.position = LatLng(37.653669,127.015346)
-        marker16.map = naverMap
-
-        marker17.position = LatLng(37.652610,127.015593)
-        marker17.map = naverMap
-
-        marker18.position = LatLng(37.6532749, 127.0149912) // 여기까지 함
-        marker18.map = naverMap
 
         marker19.position = LatLng(37.6511085, 127.0166856)
         marker19.map = naverMap
 
-        // ★★marker 20~23 지우기
 
-        marker20.position = LatLng(37.653669,127.015346)
-        marker20.map = naverMap
-
-        marker21.position = LatLng(37.652610,127.015593)
-        marker21.map = naverMap
-
-        marker22.position = LatLng(37.6532749, 127.0149912) // 여기까지 함
-        marker22.map = naverMap
-
-        marker23.position = LatLng(37.6511085, 127.0166856)
-        marker23.map = naverMap
-
-        */
+        // md fourteen가 약학관 아트홀, (약학관 아트홀이랑 차미리사관 다시 잘 뜨게 하면 좋을듯)
 
         // 24 번째 마커 표시
         marker24.position = LatLng(37.6515959, 127.0166134) // 여기부터 다시 시작
@@ -222,33 +178,10 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         // 26 번째 마커 표시
         marker26.position = LatLng(37.6519872, 127.0166375) // 요놈이 음식물쓰레기!!!!! (음식물쓰레기는 special하니까 다르게 표시해도 좋을듯)
         marker26.map = naverMap
+        marker26.icon = Marker.DEFAULT_ICON
+        marker26.setIconTintColor(Color.parseColor("#FF0000")) // 빨간색 설정
 
-        /*
-        // ★★marker 27~31 지우기
-        // 27 번째 마커 표시
-        marker27.position = LatLng(37.6522150, 127.0164314)
-        marker27.map = naverMap
 
-        // 28번째 마커 표시
-        marker28.position = LatLng(37.6522150, 127.0164314)
-        marker28.map = naverMap
-
-        // 29 번째 마커 표시
-        marker29.position = LatLng(37.6518240, 127.0166614)
-        marker29.map = naverMap
-
-        // 30번째 마커 표시
-        marker30.position = LatLng(37.6521321, 127.0163861)
-        marker30.map = naverMap
-
-        // 31 번째 마커 표시
-        marker31.position = LatLng(37.6517624, 127.0164743)
-        marker31.map = naverMap
-
-        // 32 번째 마커 표시
-        marker32.position = LatLng(37.653225,127.015686) // 엥 이건 왜 남음..?
-        marker32.map = naverMap
-        */
 
 
 
@@ -264,28 +197,15 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker8.setOnClickListener(this);
         marker9.setOnClickListener(this);
         marker10.setOnClickListener(this);
-        marker11.setOnClickListener(this);
-        marker12.setOnClickListener(this);
-        marker13.setOnClickListener(this);
+
         marker14.setOnClickListener(this);
-        marker15.setOnClickListener(this);
-        marker16.setOnClickListener(this);
-        marker17.setOnClickListener(this);
-        marker18.setOnClickListener(this);
+
         marker19.setOnClickListener(this);
-        marker20.setOnClickListener(this);
-        marker21.setOnClickListener(this);
-        marker22.setOnClickListener(this);
-        marker23.setOnClickListener(this);
+
         marker24.setOnClickListener(this);
         marker25.setOnClickListener(this);
         marker26.setOnClickListener(this);
-        marker27.setOnClickListener(this);
-        marker28.setOnClickListener(this);
-        marker29.setOnClickListener(this);
-        marker30.setOnClickListener(this);
-        marker31.setOnClickListener(this);
-        marker32.setOnClickListener(this);
+
 
 
 
@@ -350,56 +270,12 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
                 val intent = Intent(this, MDtenActivity::class.java)
                 startActivity(intent)
                 return true // 이벤트 소비
-            } else if (overlay == marker11) {
-                val intent = Intent(this, MDelevenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker12) {
-                val intent = Intent(this, MDtwelveActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker13) {
-                val intent = Intent(this, MDthirteenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
             } else if (overlay == marker14) {
                 val intent = Intent(this, MDfourteenActivity::class.java)
                 startActivity(intent)
                 return true // 이벤트 소비
-            } else if (overlay == marker15) {
-                val intent = Intent(this, MDfifteenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker16) {
-                val intent = Intent(this, MDsixteenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            }else if (overlay == marker17) {
-                val intent = Intent(this, MDseventeenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker18) {
-                val intent = Intent(this, MDeighteenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
             } else if (overlay == marker19) {
                 val intent = Intent(this, MDnineteenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker20) {
-                val intent = Intent(this, MDtwentyActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker21) {
-                val intent = Intent(this, MDtwentyoneActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker22) {
-                val intent = Intent(this, MDtwentytwoActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker23) {
-                val intent = Intent(this, MDtwentythreeActivity::class.java)
                 startActivity(intent)
                 return true // 이벤트 소비
             } else if (overlay == marker24) {
@@ -412,30 +288,6 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
                 return true // 이벤트 소비
             } else if (overlay == marker26) {
                 val intent = Intent(this, MDtwentysixActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker27) {
-                val intent = Intent(this, MDtwentysevenActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker28) {
-                val intent = Intent(this, MDtwentyeightActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker29) {
-                val intent = Intent(this, MDtwentynineActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker30) {
-                val intent = Intent(this, MDthirtyActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker31) {
-                val intent = Intent(this, MDthirtyoneActivity::class.java)
-                startActivity(intent)
-                return true // 이벤트 소비
-            } else if (overlay == marker32) {
-                val intent = Intent(this, MDthirtytwoActivity::class.java)
                 startActivity(intent)
                 return true // 이벤트 소비
             }
