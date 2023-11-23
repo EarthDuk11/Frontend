@@ -47,20 +47,36 @@ class MainActivity : AppCompatActivity(){
                 .commit()
         }
 
-        val bottomNavigationView = findViewById(R.id.navigationView) as NavigationBarView
+        val bottomNavigationView = findViewById<NavigationBarView>(R.id.navigationView)
         bottomNavigationView.setOnItemSelectedListener(
             object: NavigationBarView.OnItemSelectedListener{
                 override fun onNavigationItemSelected(item: MenuItem): Boolean {
                     var selectedFragment: Fragment ? = null
                     when(item.itemId){
-                        R.id.home_menu -> selectedFragment = mainFragment // 원래는 지도 프레그먼트, 지금은 테스트용
+                        R.id.home_menu -> selectedFragment = mainFragment
                         R.id.menu_menu -> {
-                            // 여기서 menu_menu를 눌렀을 때 LoginActivity로 이동하도록 설정
-                            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-                            startActivity(intent)
-                            return true
-                        } // 원래는 길잡이 프레그먼트로 이동인데 로그인 페이지 이동으로 변경
-                        R.id.mypage_menu -> selectedFragment = mypageFragment
+                            // 여기서 menu_menu를 눌렀을 때 LoginActivity로 이동하도록 설정 -> 로그인이 되어있다면 streetGuideFragment로 이동하게 해야 함.
+                            if(!MyApplication.checkAuth()){
+                                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                                selectedFragment= mainFragment
+                                startActivity(intent)
+                                return true
+                            }
+                            selectedFragment= streetGuideFragment
+
+                        }
+                        R.id.mypage_menu -> {
+                            // 여기서 mypage_menu 눌렀을 때 LoginActivity로 이동하도록 설정 -> 로그인이 되어있다면 mypageFragment로 이동하게 해야 함.
+                            if(!MyApplication.checkAuth()){
+                                val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                                selectedFragment= mainFragment
+                                startActivity(intent)
+                                return true
+                            }
+                            selectedFragment= mypageFragment
+
+                        }
+
                     }
                     selectedFragment?.let{
                         supportFragmentManager
@@ -84,13 +100,13 @@ class MainActivity : AppCompatActivity(){
         }
         */
 
-
-
     }
 
-    fun onMapBoxClick(view: View) {
-        // map_box를 클릭했을 때 수행할 동작을 여기에 추가
-        val intent = Intent(this, MapViewActivity::class.java)
-        startActivity(intent)
-    }
+//
+//    fun onMapBoxClick(view: View) {
+//        // map_box를 클릭했을 때 수행할 동작을 여기에 추가
+//        val intent = Intent(this, MapViewActivity.MapViewActivity::class.java)
+//        startActivity(intent)
+//    }
+
 }
