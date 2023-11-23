@@ -2,7 +2,9 @@ package com.example.team11
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.team11.databinding.ActivityGuideDetailBinding
 import com.example.team11.databinding.ActivityMainBinding
 import com.example.team11.databinding.ActivityProductElectronicBinding
@@ -15,32 +17,29 @@ class GuideDetailActivity : AppCompatActivity() {
         binding = ActivityGuideDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val guideId = intent.getStringExtra("clicked_item_id")
-        val productId = intent.getStringExtra("clicked_detail_item_id")
+        val bundle: Bundle? = intent.extras
+        if(bundle != null){
+            val productId: String? = bundle.getString("productId")
+            val productTitle: String? = bundle.getString("title")
+            val productContent: String? = bundle.getString("content")
 
-        if(guideId != null) {
-            if (productId != null) {
-                MyApplication.db
-                    .collection("guides").document(guideId)
-                    .collection("items").document(productId)
-                    .collection("detail")
-                    .get()
-                    .addOnSuccessListener { documents->
-                        for(document in documents){
-                            val title = document.getString("detailTitle")
-                            val contents = document.getString("detailContent")
+            binding.detailTitle.text = productTitle
+            binding.detailContents.text = productContent
 
-                            binding.detailTitle.text=title
-                            binding.detailContents.text=contents
+            val imageRef = MyApplication.storage.reference.child("categories/${productId}.png")
+            Log.d("url 출력", imageRef.toString())
+            imageRef.downloadUrl.addOnCompleteListener{task ->
+                if(task.isSuccessful){
+                    // 다운로드 이미지를 ImageView에 보여줌.
+                    Glide.with(this)
+                        .load(task.result)
+                        .into(binding.detailImage)
 
-                        }
-                    }
-                    .addOnFailureListener{ exception ->
-                        Toast.makeText(this, "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
-                    }
+                }
             }
 
         }
+
 
         binding.backToGuide.setOnClickListener {
             finish()
