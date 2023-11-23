@@ -163,7 +163,7 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         marker9.map = naverMap
 
         // 열 번째 마커 표시
-        marker10.position = LatLng(37.6532749, 127.0149912) // 여기까지 함 (채원 채워야됨)
+        marker10.position = LatLng(37.6532749, 127.0149912)
         marker10.map = naverMap
 
         // ★★marker11~18 지우기
