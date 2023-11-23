@@ -102,11 +102,11 @@ class MainActivity : AppCompatActivity(){
 
     }
 
-
-    fun onMapBoxClick(view: View) {
-        // map_box를 클릭했을 때 수행할 동작을 여기에 추가
-        val intent = Intent(this, MapViewActivity::class.java)
-        startActivity(intent)
-    }
+//
+//    fun onMapBoxClick(view: View) {
+//        // map_box를 클릭했을 때 수행할 동작을 여기에 추가
+//        val intent = Intent(this, MapViewActivity.MapViewActivity::class.java)
+//        startActivity(intent)
+//    }
 
 }
