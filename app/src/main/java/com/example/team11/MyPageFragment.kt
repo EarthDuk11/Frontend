@@ -53,6 +53,7 @@ class MyPageFragment : Fragment() {
         binding.fundingOpeningBtn.setOnClickListener { // 람다식 리스너 setOnclickListener{}
             goFragment(MyOpenFundingFragment())
         }
+        binding.textViewEmail.text = MyApplication.email
 
         binding.logoutBtn.setOnClickListener {
             //로그아웃...........

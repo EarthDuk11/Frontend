@@ -1,11 +1,13 @@
 package com.example.team11
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team11.databinding.FragmentMyJoinFundingBinding
 import com.example.team11.databinding.FragmentMyOpenFundingBinding
@@ -26,6 +28,8 @@ class MyJoinFundingFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     lateinit var binding: FragmentMyJoinFundingBinding
+     var favorite_docId : String? = ""
+    var itemList = mutableListOf<ItemFundingModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,22 +45,56 @@ class MyJoinFundingFragment : Fragment() {
     ): View? {
         binding = FragmentMyJoinFundingBinding.inflate(inflater, container, false)
         makeRecyclerView()
+        Log.d("test", "test")
 
         return binding.root
     }
     public fun makeRecyclerView() {
+        MyApplication.db.collection("favorite")
+            .get()
+            .addOnSuccessListener { result ->
+                Toast.makeText(context, "test : ${favorite_docId}", Toast.LENGTH_SHORT).show()
+
+                for(document in result){
+                    val item = document.toObject(ItemFavoriteFundingModel::class.java)
+                    if(MyApplication.email.equals(item.user_email)){
+
+                        favorite_docId = item.funding_id.toString()
+                        getFavoriteFunding(favorite_docId!!)
+                        Log.d("myjoinfunding", "id: ${favorite_docId}")
+                        Log.d("myjoinfunding", "myJoinFunding user_id : ${item.user_email}")
+
+                    }
+
+                }
+
+
+            }
+            .addOnFailureListener{
+                Toast.makeText(requireContext(), "데이터 획득 실패", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+    public fun getFavoriteFunding(funding_id : String) {
         MyApplication.db.collection("fundings")
             .orderBy("date", Query.Direction.DESCENDING)
             .get()
             .addOnSuccessListener { result ->
-                val itemList = mutableListOf<ItemFundingModel>()
-                for(document in result){
+
+                for (document in result) {
                     val item = document.toObject(ItemFundingModel::class.java)
                     item.docId = document.id
-                    itemList.add(item)
+                    if (document.id.equals(funding_id)) {
+                        Log.d("myjoinfunding", "get f_id : ${item.docId}")
+                        Log.d("myjoinfunding", "myJoinFundging funding docId : ${item.docId}")
+
+                        itemList.add(item)
+                    }
+                    binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                    binding.recyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+
                 }
-                binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-                binding.recyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+
             }
             .addOnFailureListener{
                 Toast.makeText(requireContext(), "데이터 획득 실패", Toast.LENGTH_SHORT).show()

@@ -39,9 +39,10 @@
             android:background="@drawable/profile_image"
 />
         <TextView
+            android:id="@+id/textViewEmail"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-
+android:gravity="center"
             android:layout_marginTop="26dp"
             android:layout_marginRight="76dp"
             android:layout_marginLeft="76dp"/>
