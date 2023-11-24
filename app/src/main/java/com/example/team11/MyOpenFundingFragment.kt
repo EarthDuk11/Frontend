@@ -1,6 +1,7 @@
 package com.example.team11
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,6 +45,8 @@ class MyOpenFundingFragment : Fragment() {
         makeRecyclerView()
 
 // go funding Detail page................................
+
+
 
         return binding.root
     }

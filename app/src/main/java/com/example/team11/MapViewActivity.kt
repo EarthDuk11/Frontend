@@ -35,7 +35,7 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
     private lateinit var binding: ActivityMapViewBinding
     private lateinit var naverMap: NaverMap
     private lateinit var locationSource: FusedLocationSource
-    
+
     // 마커 변수 선언 및 초기화
     val marker = Marker()
     val marker2 = Marker()
@@ -112,7 +112,7 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
         Log.d(TAG, "onMapReady")
 
         // 지도상에 마커 표시
-        
+
         marker.position = LatLng(37.6500722, 127.0202356)
 
         marker.map = naverMap
@@ -299,4 +299,3 @@ class MapViewActivity : AppCompatActivity(), OnMapReadyCallback, Overlay.OnClick
 
 
 }
-
