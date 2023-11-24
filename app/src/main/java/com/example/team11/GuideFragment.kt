@@ -131,7 +131,7 @@ class GuideFragment : Fragment() {
                     itemList.add(item)
                 }
 
-               // val adapter = MyCategoryAdapter(requireContext(), itemList), object: MyCategoryAdapter.OnItemClickListener{
+                // val adapter = MyCategoryAdapter(requireContext(), itemList), object: MyCategoryAdapter.OnItemClickListener{
 //                    override fun onItemClick(itemId:String){
 //                        val intent = Intent(requireContext(), ProductElectronicActivity::class.java)
 //                        intent.putExtra("clicked_item_id", itemId) // 여기서 putExtra 사용
