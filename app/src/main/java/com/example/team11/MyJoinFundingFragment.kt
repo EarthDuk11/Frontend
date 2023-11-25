@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team11.databinding.FragmentMyJoinFundingBinding
-import com.example.team11.databinding.FragmentMyOpenFundingBinding
+
 import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.Query
 

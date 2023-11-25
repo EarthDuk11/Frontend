@@ -17,6 +17,7 @@
             android:layout_height="match_parent"
             android:text="분리수거 가이드"
             android:layout_marginTop="52dp"
+            android:textSize="17sp"
             android:gravity="center"
             android:textStyle="bold"
             android:textColor="#191D21" />
