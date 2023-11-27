@@ -14,7 +14,7 @@
         app:cardElevation="3dp"
         android:backgroundTint="@color/white"
         app:cardUseCompatPadding="true"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="0dp"
         android:background="@color/white"
         >
         <LinearLayout
