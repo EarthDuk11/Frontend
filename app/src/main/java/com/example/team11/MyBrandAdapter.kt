@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.ItemBrandBinding
 
+
 class BrandViewHolder(val binding: ItemBrandBinding) : RecyclerView.ViewHolder(binding.root)
 
 

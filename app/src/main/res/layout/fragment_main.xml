@@ -13,11 +13,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Title"
+        android:text="쓰불재"
         android:background="@color/custom_toolbar"
         android:gravity="center_vertical"
         android:paddingLeft="29dp"
-        android:textSize="26sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
 
     <RelativeLayout
@@ -57,7 +57,7 @@
         <com.naver.maps.map.MapView
             android:id="@+id/navermap"
             android:layout_width="match_parent"
-            android:layout_height="179dp"
+            android:layout_height="250dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="111dp"
             android:layout_marginRight="20dp"
@@ -67,14 +67,14 @@
             android:layout_width="3dp"
             android:layout_height="19dp"
             android:layout_marginLeft="19dp"
-            android:layout_marginTop="352dp"
+            android:layout_marginTop="460dp"
             android:background="#000000" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="351dp"
+            android:layout_marginTop="460dp"
             android:gravity="top"
             android:text="어떻게 버리나요?"
             android:textColor="#000000"
@@ -84,7 +84,7 @@
             android:layout_width="175dp"
             android:layout_height="60dp"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="390dp"
+            android:layout_marginTop="500dp"
             android:gravity="top"
             android:text="할수록 헷갈리는 분리수거는 이제 그만! 정확한 분리방법을 확인하자"
             android:textColor="#AAAAAA" />
@@ -94,7 +94,7 @@
             android:layout_width="127dp"
             android:layout_height="32dp"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="469dp"
+            android:layout_marginTop="580dp"
             android:background="@drawable/see_guide_button"
             android:text="가이드 보러가기"
             android:textColor="#000000" />
@@ -103,7 +103,7 @@
             android:layout_width="160dp"
             android:layout_height="195dp"
             android:layout_marginLeft="240dp"
-            android:layout_marginTop="315dp"
+            android:layout_marginTop="430dp"
             android:src="@drawable/recycle_guide" />
 
 
