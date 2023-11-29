@@ -56,7 +56,7 @@
             android:layout_marginLeft="31dp"
             android:layout_marginTop="212dp"
             android:background="@drawable/see_guide_button"
-            android:text="펀딩으로 함께하기..."
+            android:text="펀딩으로 함께하기"
             android:textColor="#000000" />
 
         <ImageView
@@ -123,6 +123,16 @@
 
 
     </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#F5F5F5"
+        app:itemIconTint="@drawable/menu_selector_color"
+        app:itemTextColor="@drawable/menu_selector_color"
+        app:menu="@menu/bottom_navigation_menu" />
 
 
 
