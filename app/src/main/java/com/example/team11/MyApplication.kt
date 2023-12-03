@@ -32,6 +32,7 @@ class MyApplication : MultiDexApplication(){
 
         auth = Firebase.auth
 
+
         db = FirebaseFirestore.getInstance() // 하나의 컬렉션을 만들겠다.
         storage = Firebase.storage // for diary image
     }
