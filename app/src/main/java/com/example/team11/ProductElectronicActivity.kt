@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.team11.databinding.ActivityProductElectronicBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
-class ProductElectronicActivity : AppCompatActivity() {
+class ProductElectronicActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     lateinit var binding: ActivityProductElectronicBinding
     lateinit var adapter: MyProductAdapter
 
@@ -20,102 +21,77 @@ class ProductElectronicActivity : AppCompatActivity() {
         binding = ActivityProductElectronicBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // itemList를 미리 초기화해줍니다.
-        //val itemList = mutableListOf<ItemProductModel>()
-
-
-
         //db
 
-        val guideId = intent.getStringExtra("clicked_item_id")
+        val bundle: Bundle? = intent.extras
+        if(bundle != null){
+            val guideId = bundle.getString("id")
+            val guideTitle = bundle.getString("title")
+            val categoryDocId = bundle.getString("docId")
 
-        if(guideId != null){
-            MyApplication.db
-                .collection("guides").document(guideId)
-                .collection("items")
-                .get()
-                .addOnSuccessListener { items ->
-                    val itemList = mutableListOf<ItemProductModel>()
-                    for (document in items){
-                        val item = document.toObject(ItemProductModel::class.java)
-                        item.productId = document.id
-                        itemList.add(item)
-                    }
-                    // Adapter를 초기화합니다. context 파라미터에는 this를 사용합니다.
-                    val adapter = MyProductAdapter(this, itemList, object : MyProductAdapter.OnItemClickListener {
-                        override fun onItemClick(itemId: String) {
-                            val intent = Intent(this@ProductElectronicActivity, GuideDetailActivity::class.java)
-                            intent.putExtra("clicked_item_id", guideId)
-                            intent.putExtra("clicked_detail_item_id", itemId)
-                            startActivity(intent)
+
+            binding.categoryTitle.text=guideTitle
+            Log.d("중분류 ID", guideId.toString())
+
+            if(guideId != null){
+                MyApplication.db
+                    .collection("guides").document(categoryDocId.toString())
+                    .collection("items")
+                    .get()
+                    .addOnSuccessListener { items ->
+                        val itemList = mutableListOf<ItemProductModel>()
+                        for (document in items){
+                            val item = document.toObject(ItemProductModel::class.java)
+                            item.productId = document.id
+                            itemList.add(item)
                         }
-                    })
 
-                    binding.productRecyclerView.layoutManager = GridLayoutManager(this, 2)
-                    binding.productRecyclerView.adapter = adapter
+                        binding.productRecyclerView.layoutManager = GridLayoutManager(this, 2)
+                        binding.productRecyclerView.adapter = MyProductAdapter(this, itemList)
 
-                }
+                    }
                     .addOnFailureListener{ exception ->
-                    Toast.makeText(this, "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
-                }
+                        Toast.makeText(this, "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+                    }
+
+            }
 
         }
 
+        // SearchView 내용 추가
+        // MyProductAdapter를 초기화할 때 itemListFull도 초기화합니다.
+//        val itemList = mutableListOf<ItemProductModel>()
+//        adapter = MyProductAdapter(this, itemList)
+//        adapter.itemListFull = itemList
+//        binding.productRecyclerView.layoutManager = GridLayoutManager(this, 2)
+//        binding.productRecyclerView.adapter = adapter
 
-    /*
-        val itemList = mutableListOf<ItemProductModel>()
-        val item1: ItemProductModel = ItemProductModel()
-        item1.productId = "1"
-        item1.titleImage = R.drawable.a_f
-        item1.tvHeading = "마우스"
-        itemList.add(item1)
+        // SearchView에 리스너 등록
+        binding.searchView.setOnQueryTextListener(this)
 
-        val item2: ItemProductModel = ItemProductModel()
-        item2.productId = "2"
-        item2.titleImage = R.drawable.a_b
-        item2.tvHeading = "헤드셋"
-        itemList.add(item2)
+    }
 
-        val item3: ItemProductModel = ItemProductModel()
-        item3.productId = "3"
-        item3.titleImage = R.drawable.a_c
-        item3.tvHeading = "프린터"
-        itemList.add(item3)
+    // SearchView.OnQueryTextListener 구현
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        // 검색 버튼을 눌렀을 때의 동작 (필요에 따라 구현)
+        Log.d("검색 버튼을 눌렀을 때", "검색버튼이 눌렸습니다.")
+        Log.d("검색어", "${query}")
+        return true
+    }
 
-        val item4: ItemProductModel = ItemProductModel()
-        item4.productId = "4"
-        item4.titleImage = R.drawable.a_d
-        item4.tvHeading = "충전기"
-        itemList.add(item4)
+    override fun onQueryTextChange(newText: String?): Boolean {
+        // 검색어가 변경될 때마다 호출되는 동작
+        Log.d("검색어가 변경될 때", "검색어가 변경되었습니다.")
+        Log.d("변경된 검색어:", "${newText}")
+        if (::adapter.isInitialized) { // Check if adapter is initialized before using it
+            adapter.filter.filter(newText)
+        } else if (binding.productRecyclerView.adapter is MyProductAdapter) {
+            // 어댑터가 초기화되지 않았지만 RecyclerView에 MyProductAdapter 유형의 어댑터가 있는 경우 참조를 가져와 데이터를 필터링합니다.
+            adapter = binding.productRecyclerView.adapter as MyProductAdapter
+            adapter.filter.filter(newText)
+        }
 
-        val item5: ItemProductModel = ItemProductModel()
-        item5.productId = "5"
-        item5.titleImage = R.drawable.a_e
-        item5.tvHeading = "노트북"
-        itemList.add(item5)
-
-        val item6: ItemProductModel = ItemProductModel()
-        item6.productId = "6"
-        item6.titleImage = R.drawable.a_a
-        item6.tvHeading = "노트북"
-        itemList.add(item6)
-
-        val myProductAdapter = MyProductAdapter(this, itemList)
-        binding.productRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        binding.productRecyclerView.adapter = myProductAdapter
-
-        val intent = Intent(this, GuideDetailActivity::class.java)
-
-        myProductAdapter.setOnItemclickListner(object: MyProductAdapter.OnItemClickListner{
-            override fun onItemClick(view: View, position: Int) {
-                Log.d("MyProductAdapter", "아이템이 위치에서 클릭됨: $position")
-                if(position == 0)   // 마우스 디테일로 이동함
-                    Log.d("MyProductAdapter", "GuideDetailActivity 실행 중")
-                    startActivity(intent)
-
-            }
-        })*/
-
+        return true
     }
 
 

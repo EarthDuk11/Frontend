@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5f5">
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -46,7 +46,6 @@
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="50dp"
                 android:background="@drawable/edittext_round"
                 android:hint="이메일"
                 android:padding="10dp"
@@ -68,12 +67,27 @@
                 android:textColorHint="#000000" />
 
             <Button
+                android:id="@+id/loginBtn"
                 android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/loginbutton_round"
                 android:text="로그인"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/googleBtn"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#aed8e6"
+                android:text="       구글인증"
+                android:drawableRight="@drawable/baseline_android_24"
+                android:paddingRight="10dp"
                 android:textColor="#ffffff"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -88,6 +102,8 @@
                 android:text="회원가입"
                 android:textSize="18dp"
                 android:textColor="#058EE2"/>
+
+
         </LinearLayout>
     </LinearLayout>
 

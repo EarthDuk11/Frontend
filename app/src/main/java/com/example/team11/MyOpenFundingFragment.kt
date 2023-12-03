@@ -1,6 +1,7 @@
 package com.example.team11
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -45,6 +46,8 @@ class MyOpenFundingFragment : Fragment() {
 
 // go funding Detail page................................
 
+
+
         return binding.root
     }
     public fun makeRecyclerView() {
@@ -56,7 +59,9 @@ class MyOpenFundingFragment : Fragment() {
                 for(document in result){
                     val item = document.toObject(ItemFundingModel::class.java)
                     item.docId = document.id
-                    itemList.add(item)
+                    if(MyApplication.email.equals(item.email)) {
+                        itemList.add(item)
+                    }
                 }
                 binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
                 binding.recyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
