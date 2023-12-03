@@ -3,11 +3,13 @@ package com.example.team11
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.ItemBrandBinding
@@ -42,6 +44,7 @@ class MyBrandAdapter(val context: Context, val itemList: MutableList<ItemBrandMo
             brandName.text = data.tvHeading
             brandSub.text = data.tvsubscription
             brandVisit.text = concat(getCountVisit(data).toString(), "명이 방문했습니다.")
+
         }
 
         holder.binding.brandPageButton.setOnClickListener {

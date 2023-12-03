@@ -32,18 +32,17 @@
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="75dp"
+            android:layout_marginTop="45dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
             android:background="@drawable/profile_image"
-/>
+            />
         <TextView
             android:id="@+id/userEmail"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:layout_marginTop="26dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="55dp"
             android:textSize="16sp"
             />
         <Button
@@ -93,3 +92,99 @@
     </LinearLayout>
 
 </FrameLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:background="#F5F5F5"-->
+<!--    tools:context=".MyPageFragment">-->
+
+<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#97BFB4"-->
+<!--        >-->
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="마이페이지"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="20sp"/>-->
+
+<!--    </androidx.appcompat.widget.Toolbar>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+
+<!--        android:layout_marginTop="53dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginTop="75dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/profile_image"-->
+<!--/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/userEmail"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:layout_marginTop="26dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginBottom="55dp"-->
+<!--            android:textSize="16sp"-->
+<!--            />-->
+<!--        <Button-->
+<!--            android:id="@+id/diaryBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="내가 쓴 일기 모아보기"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="#191D21"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:layout_marginRight="76dp"-->
+<!--            android:layout_marginLeft="76dp"/>-->
+<!--        <Button-->
+<!--            android:id="@+id/fundingOpeningBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="내가 쓴 펀딩 모아보기"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="#191D21"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:layout_marginRight="76dp"-->
+<!--            android:layout_marginLeft="76dp"/>-->
+<!--        <Button-->
+<!--            android:id="@+id/fundingJoiningBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="즐겨찾기 추가한 펀딩 모아보기"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="#191D21"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:layout_marginRight="76dp"-->
+<!--            android:layout_marginLeft="76dp"/>-->
+<!--        <Button-->
+<!--            android:id="@+id/logoutBtn"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:text="로그아웃"-->
+<!--            android:background="@color/white"-->
+<!--            android:textColor="#191D21"-->
+<!--            android:layout_marginTop="18dp"-->
+<!--            android:layout_marginRight="76dp"-->
+<!--            android:layout_marginLeft="76dp"/>-->
+
+
+
+
+<!--    </LinearLayout>-->
+
+<!--</FrameLayout>-->

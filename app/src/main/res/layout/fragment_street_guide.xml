@@ -23,14 +23,14 @@
             android:layout_width="3dp"
             android:layout_height="24dp"
             android:layout_marginLeft="19dp"
-            android:layout_marginTop="135dp"
+            android:layout_marginTop="95dp"
             android:background="#000000" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="26dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="133dp"
+            android:layout_marginTop="94dp"
             android:gravity="top"
             android:text="분리수거 습관"
             android:textColor="#000000"
@@ -40,7 +40,7 @@
             android:layout_width="164dp"
             android:layout_height="63dp"
             android:layout_marginLeft="19dp"
-            android:layout_marginTop="173dp"
+            android:layout_marginTop="133dp"
             android:gravity="top"
             android:text="환경 보호를 위해
               분리수거를 활용한
@@ -53,7 +53,7 @@
             android:layout_width="127dp"
             android:layout_height="30dp"
             android:layout_marginLeft="19dp"
-            android:layout_marginTop="252dp"
+            android:layout_marginTop="212dp"
             android:background="@drawable/see_guide_button"
             android:text="펀딩으로 함께하기"
             android:textColor="#000000" />
@@ -62,28 +62,28 @@
             android:layout_width="200dp"
             android:layout_height="225dp"
             android:layout_marginLeft="204dp"
-            android:layout_marginTop="95dp"
+            android:layout_marginTop="55dp"
             android:src="@drawable/funding" />
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="225dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="393dp"
+            android:layout_marginTop="293dp"
             android:src="@drawable/brand" />
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="225dp"
             android:layout_marginLeft="204dp"
-            android:layout_marginTop="393dp"
+            android:layout_marginTop="293dp"
             android:src="@drawable/diary" />
 
         <TextView
             android:layout_width="164dp"
             android:layout_height="63dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="630dp"
+            android:layout_marginTop="530dp"
             android:gravity="top"
             android:text="더 나은 환경을 위해!       환경 보호를 추구하는       브랜드 모아보기"
             android:textAlignment="center"
@@ -95,7 +95,7 @@
             android:layout_width="127dp"
             android:layout_height="30dp"
             android:layout_marginLeft="35dp"
-            android:layout_marginTop="705dp"
+            android:layout_marginTop="605dp"
             android:background="@drawable/see_guide_button"
             android:text="브랜드 보러가기"
             android:textColor="#000000" />
@@ -104,21 +104,21 @@
             android:layout_width="164dp"
             android:layout_height="62dp"
             android:layout_marginLeft="225dp"
-            android:layout_marginTop="630dp"
+            android:layout_marginTop="530dp"
             android:gravity="top"
             android:text="분리 '수고'하셨습니다!     오늘의 나의 환경 보호를 일기로 공유해요"
             android:textAlignment="center"
             android:textColor="#AAAAAA"
             android:textSize="15dp"
             tools:ignore="RtlCompat"
-             />
+            />
 
         <Button
             android:id="@+id/toDiary"
             android:layout_width="127dp"
             android:layout_height="30dp"
             android:layout_marginLeft="241dp"
-            android:layout_marginTop="705dp"
+            android:layout_marginTop="605dp"
             android:background="@drawable/see_guide_button"
             android:text="일기 쓰러가기"
             android:textColor="#000000" />
@@ -128,3 +128,134 @@
 
 
 </FrameLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".StreetGuideFragment">-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:text="길잡이 페이지"-->
+<!--        android:background="@color/custom_toolbar"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:paddingLeft="29dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="#000000" />-->
+
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--        <View-->
+<!--            android:layout_width="3dp"-->
+<!--            android:layout_height="24dp"-->
+<!--            android:layout_marginLeft="19dp"-->
+<!--            android:layout_marginTop="135dp"-->
+<!--            android:background="#000000" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="26dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="133dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="분리수거 습관"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="20dp" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="164dp"-->
+<!--            android:layout_height="63dp"-->
+<!--            android:layout_marginLeft="19dp"-->
+<!--            android:layout_marginTop="173dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="환경 보호를 위해-->
+<!--              분리수거를 활용한-->
+<!--              신개념 리사이클 펀딩!"-->
+<!--            android:textColor="#AAAAAA"-->
+<!--            android:textSize="15dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/toFunding"-->
+<!--            android:layout_width="127dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="19dp"-->
+<!--            android:layout_marginTop="252dp"-->
+<!--            android:background="@drawable/see_guide_button"-->
+<!--            android:text="펀딩으로 함께하기"-->
+<!--            android:textColor="#000000" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="225dp"-->
+<!--            android:layout_marginLeft="204dp"-->
+<!--            android:layout_marginTop="95dp"-->
+<!--            android:src="@drawable/funding" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="225dp"-->
+<!--            android:layout_marginLeft="0dp"-->
+<!--            android:layout_marginTop="393dp"-->
+<!--            android:src="@drawable/brand" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="225dp"-->
+<!--            android:layout_marginLeft="204dp"-->
+<!--            android:layout_marginTop="393dp"-->
+<!--            android:src="@drawable/diary" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="164dp"-->
+<!--            android:layout_height="63dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="630dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="더 나은 환경을 위해!       환경 보호를 추구하는       브랜드 모아보기"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="#AAAAAA"-->
+<!--            android:textSize="15dp" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/toBrand"-->
+<!--            android:layout_width="127dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="35dp"-->
+<!--            android:layout_marginTop="705dp"-->
+<!--            android:background="@drawable/see_guide_button"-->
+<!--            android:text="브랜드 보러가기"-->
+<!--            android:textColor="#000000" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="164dp"-->
+<!--            android:layout_height="62dp"-->
+<!--            android:layout_marginLeft="225dp"-->
+<!--            android:layout_marginTop="630dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="분리 '수고'하셨습니다!     오늘의 나의 환경 보호를 일기로 공유해요"-->
+<!--            android:textAlignment="center"-->
+<!--            android:textColor="#AAAAAA"-->
+<!--            android:textSize="15dp"-->
+<!--            tools:ignore="RtlCompat"-->
+<!--             />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/toDiary"-->
+<!--            android:layout_width="127dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginLeft="241dp"-->
+<!--            android:layout_marginTop="705dp"-->
+<!--            android:background="@drawable/see_guide_button"-->
+<!--            android:text="일기 쓰러가기"-->
+<!--            android:textColor="#000000" />-->
+
+
+<!--    </RelativeLayout>-->
+
+
+<!--</FrameLayout>-->
