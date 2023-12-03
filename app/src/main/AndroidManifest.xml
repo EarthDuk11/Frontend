@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
+
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -22,24 +24,17 @@
         android:theme="@style/Theme.Team11"
         tools:replace="android:appComponentFactory"
         tools:targetApi="tiramisu">
+
         <activity
-            android:name=".MDthirtytwoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDthirtyoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDthirtyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwentynineActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwentyeightActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwentysevenActivity"
-            android:exported="false" />
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".MDtwentysixActivity"
             android:exported="false" />
@@ -49,45 +44,15 @@
         <activity
             android:name=".MDtwentyfourActivity"
             android:exported="false" />
-        <activity
-            android:name=".MDtwentythreeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwentytwoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwentyoneActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwentyActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MDnineteenActivity"
             android:exported="false" />
-        <activity
-            android:name=".MDeighteenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDseventeenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDsixteenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDfifteenActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MDfourteenActivity"
             android:exported="false" />
-        <activity
-            android:name=".MDthirteenActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDtwelveActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MDelevenActivity"
-            android:exported="false" />
+
         <activity
             android:name=".MDtenActivity"
             android:exported="false" />
@@ -112,9 +77,7 @@
         <activity
             android:name=".MDthreeActivity"
             android:exported="false" />
-        <activity
-            android:name=".MDthree"
-            android:exported="false" />
+
         <activity
             android:name=".MDtwoActivity"
             android:exported="false" />
