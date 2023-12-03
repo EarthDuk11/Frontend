@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapDetailActivity">
+
+    <ImageView
+        android:id="@+id/chevron_arr"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="27dp"
+        android:clipToOutline="true"
+        android:src="@drawable/chevron"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/some_id"
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginLeft="140dp"
+        android:text="분리수거장 상세"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:textColor="#242424"
+        />
+
+    <ImageView
+        android:id="@+id/rectangle_3"
+        android:layout_width="match_parent"
+        android:layout_height="202dp"
+        android:layout_marginTop="87dp"
+        android:src="@drawable/artgwan"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="303dp"
+        android:background="#E0E9E7"/>
+
+    <TextView
+        android:id="@+id/titlelala"
+        android:layout_width="310dp"
+        android:layout_height="32dp"
+        android:text="예술관 건물 내부"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="55dp"
+        android:textSize="25dp"
+        android:gravity="center_vertical"
+        android:textColor="#212121"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/addresslala"
+        android:layout_width="310dp"
+        android:layout_height="40dp"
+        android:text="1층,3층,4층 계단 왼쪽 오른쪽"
+        android:layout_marginTop="344dp"
+        android:layout_marginLeft="55dp"
+        android:textSize="15dp"
+        android:gravity="center_vertical"
+        android:textColor="#616161"/>
+    <View
+        android:layout_width="2dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="409dp"
+        android:layout_marginLeft="30dp"
+        android:background="#424242"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="405dp"
+        android:text="배출 가능한 쓰레기 종류 "
+        android:textColor="#424242"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="18dp"
+        android:text="일반쓰레기, 플라스틱, 폐지, 캔, 병류"
+        android:layout_marginTop="429dp"
+        android:layout_marginLeft="32dp"/>
+
+
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="469dp"
+        android:layout_marginLeft="30dp"
+        android:background="#424242"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="465dp"
+        android:text="음식물 쓰레기 배출 여부 "
+        android:textColor="#424242"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="18dp"
+        android:text="배출 X"
+        android:layout_marginTop="489dp"
+        android:layout_marginLeft="32dp"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="529dp"
+        android:layout_marginLeft="30dp"
+        android:background="#424242"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="525dp"
+        android:text="접근 가능 시간 "
+        android:textColor="#424242"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="18dp"
+        android:text="상시 가능"
+        android:layout_marginTop="549dp"
+        android:layout_marginLeft="32dp"/>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="589dp"
+        android:layout_marginLeft="30dp"
+        android:background="#424242"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="585dp"
+        android:text="추가정보"
+        android:textColor="#424242"
+        android:textSize="16dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="317dp"
+        android:layout_height="18dp"
+        android:text="늦은 시각/주말에 접근하려면 지문등록이 필요함"
+        android:layout_marginTop="609dp"
+        android:layout_marginLeft="32dp"/>
+
+
+
+
+</RelativeLayout>

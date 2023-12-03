@@ -12,7 +12,6 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.example.team11.databinding.ItemFundingBinding
 import com.bumptech.glide.Glide
-import com.example.team11.MyApplication.Companion.auth
 
 class MyFundingViewHolder(val binding: ItemFundingBinding) : RecyclerView.ViewHolder(binding.root)
 class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFundingModel>): RecyclerView.Adapter<MyFundingViewHolder>() {
@@ -32,7 +31,6 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
             fundingTitleView.text=data.title
             fundingOneLineView.text=data.oneIntro
         }
-//        MyApplication.auth.ui
 
         //스토리지 이미지 다운로드........................ 이미지를 넣어줘야 함.
 //        val imageRef = MyApplication.storage.reference.child("images/${data.docId}.jpg")  // 사용자의 userId를 넣어야 함.
@@ -50,13 +48,13 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
         holder.binding.fundingRecyclerView.setOnClickListener{
             Intent(context, FundingDetailActivity::class.java).apply {
                 var bundle : Bundle = Bundle()
+                bundle.putString("docId", data.docId)
                 bundle.putString("title", data.title)
                 bundle.putString("oneLine", data.oneIntro)
                 bundle.putString("content", data.content)
                 bundle.putString("link", data.link)
                 bundle.putString("date", data.date)
-                //11/23추가
-                bundle.putString("docId", data.docId)
+                bundle.putString("favorite", data.isFavorite)
                 putExtras(bundle)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }.run { context.startActivity(this) }
