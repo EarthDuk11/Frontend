@@ -1,5 +1,6 @@
 package com.example.team11
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -7,16 +8,26 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.team11.databinding.ItemProductBinding
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ProductViewHolder(val binding: ItemProductBinding) : RecyclerView.ViewHolder(binding.root)
 
 class MyProductAdapter (val context: Context, val itemList: MutableList<ItemProductModel>
-//private var itemClickListener: MyProductAdapter.OnItemClickListener // 클릭 리스너 추가
-) : RecyclerView.Adapter<ProductViewHolder>() {
+) : RecyclerView.Adapter<ProductViewHolder>(), Filterable { // searchView로 Filterable 추가
+
+    var itemListFull: List<ItemProductModel> = ArrayList(itemList.toList())  // searchView로 변수 추가
+
+    // 생성자에서 itemListFull 초기화 추가
+    init {
+        itemListFull = ArrayList(itemList)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -31,18 +42,6 @@ class MyProductAdapter (val context: Context, val itemList: MutableList<ItemProd
 
         holder.binding.run {
             productTitle.text = data.productTitle
-            /*Glide.with(context)
-                .load(titleImage)
-                .apply(
-                    RequestOptions().placeholder(R.drawable.a)
-                        .error(R.drawable.brand2)
-                )
-                .into(guideImageView)*/
-
-//            productCardView.setOnClickListener {
-//                // 클릭된 아이템의 ID를 전달
-//                data.productId?.let { it1 -> itemClickListener.onItemClick(it1) }
-//            }
         }
 
         val imageRef = MyApplication.storage.reference.child("categories/${data.productId}.png")
@@ -70,14 +69,48 @@ class MyProductAdapter (val context: Context, val itemList: MutableList<ItemProd
 
     }
 
-    // 클릭 리스너 인터페이스 정의
-//    interface OnItemClickListener {
-//        fun onItemClick(itemId: String)
-//    }
+    override fun getFilter(): Filter {  // searchView로 Filter 추가
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                Log.d("MyProductAdapter", "Perform Filtering - Constraint: $constraint")
+                Log.d("MyProductAdapter", "Perform Filtering - Full List: $itemListFull")
+                Log.d("ItemListFull에는 뭐가 들었을까?", "${itemListFull}")
+                val filteredList = mutableListOf<ItemProductModel>()
 
-    // 클릭 리스너 설정하는 메서드
-//    fun setOnItemClickListener(listener: OnItemClickListener) {
-//        itemClickListener = listener
-//    }
+                if (constraint.isNullOrEmpty()) {
+                    Log.d("MyProductAdapter", "Perform Filtering - No constraint, Full list used")
+                    filteredList.addAll(itemListFull)
+                } else {
+                    val filterPattern = constraint.toString().trim()
+                    Log.d("Filtered Pattern", filterPattern)
+
+                    Log.d("itemList엔 뭐가 들었을까?", "${itemList}")
+                    for (item in itemListFull) {
+                        Log.d("아이템의 이름", "${item.productTitle}")
+                        val productTitle = item.productTitle
+                        if (productTitle?.contains(filterPattern) == true) {
+                            filteredList.add(item)
+                        }
+                    }
+                    Log.d("MyProductAdapter", "Perform Filtering - Filtered list: $filteredList")
+                }
+
+                val results = FilterResults()
+                results.values = filteredList
+                return results
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Suppress("UNCHECKED_CAST")
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                Log.d("MyProductAdapter", "Publish Results - Constraint: $constraint")
+                Log.d("MyProductAdapter", "Publish Results - Filtered : ${results?.values}")
+                itemList.clear()
+                itemList.addAll(results?.values as List<ItemProductModel>)
+                notifyDataSetChanged()
+            }
+        }
+    }
+
 
 }
