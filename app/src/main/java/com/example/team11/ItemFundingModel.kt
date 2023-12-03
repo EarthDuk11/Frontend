@@ -8,6 +8,7 @@ data class ItemFundingModel(
     var content: String? = null,
     var date: String? = null,
     var link: String? = null,
+    var isFavorite: String? =null,
 
     /*
     데이터베이스 속성   |   Model 속성
