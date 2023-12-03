@@ -48,11 +48,13 @@ class MyFundingAdapter (val context: Context, val itemList: MutableList<ItemFund
         holder.binding.fundingRecyclerView.setOnClickListener{
             Intent(context, FundingDetailActivity::class.java).apply {
                 var bundle : Bundle = Bundle()
+                bundle.putString("docId", data.docId)
                 bundle.putString("title", data.title)
                 bundle.putString("oneLine", data.oneIntro)
                 bundle.putString("content", data.content)
                 bundle.putString("link", data.link)
                 bundle.putString("date", data.date)
+                bundle.putString("favorite", data.isFavorite)
                 putExtras(bundle)
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }.run { context.startActivity(this) }

@@ -13,11 +13,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Title"
+        android:text="쓰불재"
         android:background="@color/custom_toolbar"
         android:gravity="center_vertical"
         android:paddingLeft="29dp"
-        android:textSize="26sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
 
     <RelativeLayout
@@ -112,3 +112,118 @@
 
 
 </LinearLayout>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+
+<!--<LinearLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    tools:context=".MainFragment">-->
+
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="48dp"-->
+<!--        android:text="쓰불재"-->
+<!--        android:background="@color/custom_toolbar"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:paddingLeft="29dp"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textColor="#000000" />-->
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--        <View-->
+<!--            android:layout_width="3dp"-->
+<!--            android:layout_height="19dp"-->
+<!--            android:layout_marginLeft="19dp"-->
+<!--            android:layout_marginTop="66dp"-->
+<!--            android:background="#000000" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="65dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="어디에 버리나요?"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="16dp"-->
+<!--            android:clickable="true"-->
+<!--            android:onClick="onMapBoxClick" />-->
+
+<!--        &lt;!&ndash;-->
+<!--        <View-->
+<!--            android:id="@+id/map_box"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="179dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="131dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            android:background="#D9D9D9"-->
+<!--            /> &ndash;&gt;-->
+
+<!--        <com.naver.maps.map.MapView-->
+<!--            android:id="@+id/navermap"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="250dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="111dp"-->
+<!--            android:layout_marginRight="20dp"-->
+<!--            />-->
+
+<!--        <View-->
+<!--            android:layout_width="3dp"-->
+<!--            android:layout_height="19dp"-->
+<!--            android:layout_marginLeft="19dp"-->
+<!--            android:layout_marginTop="460dp"-->
+<!--            android:background="#000000" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="20dp"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_marginTop="460dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="어떻게 버리나요?"-->
+<!--            android:textColor="#000000"-->
+<!--            android:textSize="16dp" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="175dp"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:layout_marginLeft="18dp"-->
+<!--            android:layout_marginTop="500dp"-->
+<!--            android:gravity="top"-->
+<!--            android:text="할수록 헷갈리는 분리수거는 이제 그만! 정확한 분리방법을 확인하자"-->
+<!--            android:textColor="#AAAAAA" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/toGuide"-->
+<!--            android:layout_width="127dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:layout_marginLeft="18dp"-->
+<!--            android:layout_marginTop="580dp"-->
+<!--            android:background="@drawable/see_guide_button"-->
+<!--            android:text="가이드 보러가기"-->
+<!--            android:textColor="#000000" />-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="160dp"-->
+<!--            android:layout_height="195dp"-->
+<!--            android:layout_marginLeft="240dp"-->
+<!--            android:layout_marginTop="430dp"-->
+<!--            android:src="@drawable/recycle_guide" />-->
+
+
+<!--    </RelativeLayout>-->
+
+
+
+<!--</LinearLayout>-->

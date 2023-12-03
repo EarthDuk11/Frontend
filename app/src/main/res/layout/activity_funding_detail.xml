@@ -19,6 +19,7 @@ tools:context=".FundingDetailActivity">
             android:layout_height="match_parent"
             android:text="이전으로"
             android:textSize="15sp"
+            android:gravity="center"
             android:layout_marginTop="52dp"
             android:layout_marginLeft="28dp"
             android:textColor="#191D21" />
@@ -33,6 +34,16 @@ tools:context=".FundingDetailActivity">
             android:textSize="17sp"
             android:textStyle="bold"
             android:textColor="#191D21" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="52dp"
+            android:layout_marginLeft="59.87dp"
+            android:gravity="center"
+            android:src="@drawable/ph_star" />
+
 
     </LinearLayout>
 
@@ -71,7 +82,7 @@ tools:context=".FundingDetailActivity">
                 android:id="@+id/userImage"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/nomads_avatar"
+                android:src="@drawable/profile_image"
                 app:civ_border_overlay="true"
                 app:civ_border_width="0dp"
                 app:civ_border_color="#F5F5F5"
