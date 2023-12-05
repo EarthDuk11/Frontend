@@ -1,26 +1,31 @@
 package com.example.team11
 
-import android.R
+import com.example.team11.R
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import java.util.concurrent.Executor
-import java.util.concurrent.Executors
-import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.TimeUnit
 
 class SplashActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash)
 
-        val backExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
-        val mainExecutor: Executor = ContextCompat.getMainExecutor(this)
-        backExecutor.schedule({
-            mainExecutor.execute{
-                startActivity(Intent(applicationContext, MainActivity::class.java))
-                finish()
-            }
-        }, 2, TimeUnit.SECONDS)
+        Handler().postDelayed({
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            startActivity(intent)
+            finish()
+        },DURATION)
+
+    }
+    companion object {
+        private const val DURATION : Long = 2000
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }
