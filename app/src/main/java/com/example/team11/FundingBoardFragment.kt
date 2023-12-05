@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.team11.databinding.FragmentFundingBoardBinding
 import com.example.team11.databinding.FragmentStreetGuideBinding
+import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.Query
 
 // TODO: Rename parameter arguments, choose names that match
@@ -95,26 +96,58 @@ class FundingBoardFragment : Fragment(){
 
 // 지금부터 DB에서 가져올 것임.
 
-
-        Log.d("Funding Board", "onStart")
-        MyApplication.db.collection("fundings")
-
-            .orderBy("date", Query.Direction.DESCENDING)
-
+        MyApplication.db.collection("favorite")
+            .whereEqualTo("user_email", MyApplication.email)
             .get()
             .addOnSuccessListener { result ->
-                val itemList = mutableListOf<ItemFundingModel>()
-                for(document in result){
-                    val item = document.toObject(ItemFundingModel::class.java)
-                    item.docId = document.id
-                    itemList.add(item)
-                }
-                binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+                val fundingIds = result.documents.map { it.getString("funding_id") }
+                // 사용자가 즐겨찾기를 누른 funding 게시글의 funding_id에 해당하는 게시글을 들고 옴.
+                MyApplication.db.collection("fundings")
+                    .orderBy("date", Query.Direction.DESCENDING)
+                    .get()
+                    .addOnSuccessListener { funding_result ->
+                        val itemList = mutableListOf<ItemFundingModel>()
+                        for(document in funding_result){
+                            val item = document.toObject(ItemFundingModel::class.java)
+                            item.docId = document.id
+                            if(fundingIds.contains(item.docId)){
+                                item.isFavorite = "true"
+                            }
+                            itemList.add(item)
+                        }
+                        binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                        binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+                    }
+                    .addOnFailureListener{ exception ->
+                        Toast.makeText(requireContext(), "funding_ids 찾기 실패: ${exception.message}", Toast.LENGTH_SHORT).show()
+                        Log.d("id 찾기 실패", ": ${exception.message}")
+                    }
             }
             .addOnFailureListener{ exception ->
-                Toast.makeText(requireContext(), "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "서버 데이터 획득 실패: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
+
+
+
+//        Log.d("Funding Board", "onStart")
+//        MyApplication.db.collection("fundings")
+//
+//            .orderBy("date", Query.Direction.DESCENDING)
+//
+//            .get()
+//            .addOnSuccessListener { result ->
+//                val itemList = mutableListOf<ItemFundingModel>()
+//                for(document in result){
+//                    val item = document.toObject(ItemFundingModel::class.java)
+//                    item.docId = document.id
+//                    itemList.add(item)
+//                }
+//                binding.fundingBoardRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+//                binding.fundingBoardRecyclerView.adapter = MyFundingAdapter(requireContext(), itemList)
+//            }
+//            .addOnFailureListener{ exception ->
+//                Toast.makeText(requireContext(), "서버 데이터 획득 실패", Toast.LENGTH_SHORT).show()
+//            }
 
 
 

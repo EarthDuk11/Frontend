@@ -2,6 +2,7 @@ package com.example.team11
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,11 +14,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.team11.databinding.ActivityDiaryDetailBinding
+import com.google.firebase.database.collection.LLRBNode
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlin.properties.Delegates
 
 
 class DiaryDetailActivity : AppCompatActivity() {
@@ -26,14 +30,21 @@ class DiaryDetailActivity : AppCompatActivity() {
     lateinit var docId : String
     lateinit var gridview : GridView
 //    lateinit var adapter : DiaryContentAdapter
+var smileBtnClicked by Delegates.notNull<Boolean>()
+    var thumbsUpBtnClicked by Delegates.notNull<Boolean>()
+    var surprisedBtnClicked by Delegates.notNull<Boolean>()
 
     lateinit var strList : CharArray
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityDiaryDetailBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
+
 
         binding.textTitle.text = intent.getStringExtra("title")
         binding.textOneIntro.text = intent.getStringExtra("oneIntro")
@@ -49,6 +60,10 @@ class DiaryDetailActivity : AppCompatActivity() {
                     .into(binding.img)
             }
         }
+        smileBtnClicked = false
+        thumbsUpBtnClicked = false
+        surprisedBtnClicked = false
+
         setBtnEvent()
 
         // 그림일기..............................................
@@ -103,23 +118,49 @@ class DiaryDetailActivity : AppCompatActivity() {
 //            return View(Context)
 //           }
 //        }
-    private fun setBtnEvent(){
+
+    private fun setBtnEvent() {
+
         binding.button1.setOnClickListener {
-            // SMILE_BUTTON에 해당하는 데이터베이스 필드에 1을 추가
-            updateReactionCount(SMILE_BUTTON, 1)
+            if (!smileBtnClicked) {
+                binding.button1.setImageResource(R.drawable.smile_clicked)
+                smileBtnClicked = true
+                updateReactionCount(SMILE_BUTTON, 1)
+            } else {
+                binding.button1.setImageResource(R.drawable.smile2)
+                smileBtnClicked = false
+                updateReactionCount(SMILE_BUTTON, -1)
+            }
         }
 
         binding.button2.setOnClickListener {
-            // THUMBSUP_BUTTON에 해당하는 데이터베이스 필드에 1을 추가
-            updateReactionCount(THUMBSUP_BUTTON, 1)
+            if (!thumbsUpBtnClicked) {
+                binding.button2.setImageResource(R.drawable.thumbs_up_clicked)
+                thumbsUpBtnClicked = true
+                updateReactionCount(THUMBSUP_BUTTON, 1)
+            } else {
+                binding.button2.setImageResource(R.drawable.thumbsup)
+                thumbsUpBtnClicked = false
+                updateReactionCount(THUMBSUP_BUTTON, -1)
+            }
         }
 
         binding.button3.setOnClickListener {
-            // SURPRISED_BUTTON에 해당하는 데이터베이스 필드에 1을 추가
-            updateReactionCount(SURPRISED_BUTTON, 1)
+            if (!surprisedBtnClicked) {
+                binding.button3.setImageResource(R.drawable.surprised_clicked)
+                surprisedBtnClicked = true
+                updateReactionCount(SURPRISED_BUTTON, 1)
+            } else {
+                binding.button3.setImageResource(R.drawable.surprised)
+                surprisedBtnClicked = false
+                updateReactionCount(SURPRISED_BUTTON, -1)
+            }
         }
-
     }
+    /*
+    *
+    *  var thumbsUpBtnClicked : Boolean = false
+    var surprisedBtnClicked : Boolean = false*/
 
         private fun updateReactionCount(reactionType: Int, countToAdd: Int) {
             val db = Firebase.firestore

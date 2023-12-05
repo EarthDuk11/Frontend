@@ -8,6 +8,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
+
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -22,7 +24,20 @@
         android:theme="@style/Theme.Team11"
         tools:replace="android:appComponentFactory"
         tools:targetApi="tiramisu">
+
         <activity
+
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+
             android:name=".MDtwentysixActivity"
             android:exported="false" />
         <activity
@@ -31,12 +46,15 @@
         <activity
             android:name=".MDtwentyfourActivity"
             android:exported="false" />
+
         <activity
             android:name=".MDnineteenActivity"
             android:exported="false" />
+
         <activity
             android:name=".MDfourteenActivity"
             android:exported="false" />
+
         <activity
             android:name=".MDtenActivity"
             android:exported="false" />
@@ -61,6 +79,7 @@
         <activity
             android:name=".MDthreeActivity"
             android:exported="false" />
+
         <activity
             android:name=".MDtwoActivity"
             android:exported="false" />

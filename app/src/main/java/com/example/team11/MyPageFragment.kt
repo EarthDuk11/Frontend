@@ -42,6 +42,7 @@ class MyPageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentMyPageBinding.inflate(inflater, container, false)
+        binding.userEmail.text = MyApplication.email + "님"
 
         // button 클릭시 fragmenrFive_ReviwList로 이동
         binding.diaryBtn.setOnClickListener { // 람다식 리스너 setOnclickListener{}
@@ -53,6 +54,7 @@ class MyPageFragment : Fragment() {
         binding.fundingOpeningBtn.setOnClickListener { // 람다식 리스너 setOnclickListener{}
             goFragment(MyOpenFundingFragment())
         }
+        binding.userEmail.text = MyApplication.email
 
         binding.logoutBtn.setOnClickListener {
             //로그아웃...........

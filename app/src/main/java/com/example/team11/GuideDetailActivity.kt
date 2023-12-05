@@ -23,8 +23,10 @@ class GuideDetailActivity : AppCompatActivity() {
             val productTitle: String? = bundle.getString("title")
             val productContent: String? = bundle.getString("content")
 
+            val modifiedProductContent = productContent?.replace("\\n", "\n")
+
             binding.detailTitle.text = productTitle
-            binding.detailContents.text = productContent
+            binding.detailContents.text = modifiedProductContent
 
             val imageRef = MyApplication.storage.reference.child("categories/${productId}.png")
             Log.d("url 출력", imageRef.toString())

@@ -30,6 +30,8 @@ class DiaryFragment : Fragment() {
     private var param2: String? = null
     lateinit var binding: FragmentDiaryBinding
     lateinit var adapter: MyFeedAdapter
+    private var isListButtonSelected = false
+    private var isHashTagButtonSelected = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,8 +61,8 @@ class DiaryFragment : Fragment() {
 
         makeRecyclerView()
 
-        binding.goWritingBtn.setOnClickListener{
-            activity?.let{
+        binding.goWritingBtn.setOnClickListener {
+            activity?.let {
                 val intent = Intent(context, AddDiaryActivity::class.java)
                 startActivity(intent)
             }
@@ -70,14 +72,29 @@ class DiaryFragment : Fragment() {
 //        android:background="@drawable/background_style_button"
 
         binding.btnDiaryList.setOnClickListener {
-//            binding.btnDiaryList.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.second_color))
-
+            isListButtonSelected = true
+            isHashTagButtonSelected = false
+            updateButtonBackground()
             makeRecyclerView()
         }
-        binding.btnHashTag.setOnClickListener{
+
+        binding.btnHashTag.setOnClickListener {
+            isHashTagButtonSelected = true
+            isListButtonSelected = false
+            updateButtonBackground()
             hashTagRecyclerView()
+
         }
 
+    }
+    private fun updateButtonBackground() {
+        if (isListButtonSelected) {
+            binding.btnDiaryList.setBackgroundResource(R.drawable.background_style_button)
+            binding.btnHashTag.setBackgroundResource(R.drawable.background_round)
+        } else {
+            binding.btnDiaryList.setBackgroundResource(R.drawable.background_round)
+            binding.btnHashTag.setBackgroundResource(R.drawable.background_style_button)
+        }
     }
 
     public fun makeRecyclerView() {
@@ -120,7 +137,6 @@ class DiaryFragment : Fragment() {
             .addOnFailureListener{
                 Toast.makeText(requireContext(), "데이터 획득 실패", Toast.LENGTH_SHORT).show()
             }
-
     }
 
 

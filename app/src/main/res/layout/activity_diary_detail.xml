@@ -104,6 +104,19 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="center_horizontal">
+<!--            <ImageView-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background="@drawable/smile2"-->
+<!--                backg-->
+<!--                />-->
+<!--            <Button-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:background=""/>-->
+<!--            <Button-->
+<!--                android:layout_width="50dp"-->
+<!--                android:layout_height="50dp"/>-->
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -135,11 +148,12 @@
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/button3"
                 android:src="@drawable/surprised"
-                android:backgroundTint="@color/diary_button"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:elevation="6dp"
-                app:fabSize="normal" />
+                app:fabSize="normal"
+                android:backgroundTint="@color/diary_button"/>
 
         </LinearLayout>
 
