@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentTransaction
-import com.example.team11.databinding.FragmentFundingBoardBinding
 import com.example.team11.databinding.FragmentStreetGuideBinding
 import com.google.android.material.navigation.NavigationBarView
 

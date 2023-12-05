@@ -26,6 +26,7 @@
         tools:targetApi="tiramisu">
 
         <activity
+
             android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -36,6 +37,7 @@
         </activity>
 
         <activity
+
             android:name=".MDtwentysixActivity"
             android:exported="false" />
         <activity
@@ -113,6 +115,9 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity
+            android:name=".StreetGuideActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -121,9 +126,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".StreetGuideActivity"
-            android:exported="false" />
+
 
         <meta-data
             android:name="com.naver.maps.map.CLIENT_ID"
